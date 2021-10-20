@@ -8,7 +8,7 @@ $idtopik = $_GET['idtopik'];
 <?php
 if (isset($_POST['submit'])){
   if ($_FILES['gambar']['name']==NULL){
-       $newnamepic="";
+       $newnamepic=null;
   }else{
     $gambar=$_FILES['gambar']['name']; 
     //PROSES GAMBAR

@@ -29,6 +29,8 @@ if($jenis_soalan=='fib'){
 }
 }
 $subjek_pilihan = $_GET['idsubjek'];
+$result = mysqli_query($hubung, "SELECT * FROM subjek WHERE idsubjek='$subjek_pilihan'");
+$res = mysqli_fetch_array($result);
 $_SESSION['idsubjek']=$subjek_pilihan;
 //TOTAL TOPIK
 $query = "SELECT * FROM topik WHERE idsubjek='$subjek_pilihan'";
@@ -50,11 +52,8 @@ $next=$total+1;
 <td align="right">SUBJEK:</td>
 <td>
 <?php
-$result = mysqli_query($hubung, "SELECT * FROM subjek WHERE idsubjek='$subjek_pilihan'");
-while($res = mysqli_fetch_array($result)){
   $paparsubjek = $res['subjek'];
   echo $paparsubjek;
-}
 ?>
 <input type="text" value="<?php echo $subjek_pilihan; ?>" name="subjek" hidden /></td> 
 </tr> 
@@ -65,7 +64,7 @@ while($res = mysqli_fetch_array($result)){
 </tr>
 <tr>
 <td align="right">TOPIK:</td>
-<td><input type="text" name="topik"/></td>
+<td><input type="text" name="topik" required/></td>
 </tr> 
 <tr>
 <td align="right">FORMAT SOALAN:</td>

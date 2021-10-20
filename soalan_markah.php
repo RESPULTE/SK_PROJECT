@@ -6,10 +6,10 @@ include 'header.php';
 
 <?php
 //QUERY SOALAN
-$query="INSERT INTO perekodan(idperekodan,idpengguna,idtopik,jenis,skor,catatan_masa)
-values(NULL,'$_SESSION[idpengguna]','$_SESSION[idtopik]','$_SESSION[jenis_soalan]',
-'$_SESSION[score]',NULL)";
-$insert_row=mysqli_query($hubung,$query);
+$query="INSERT INTO perekodan (idperekodan,idpengguna,idtopik,jenis,skor,catatan_masa)
+VALUES (NULL,'{$_SESSION['idpengguna']}','{$_SESSION['idtopik']}','{$_SESSION['jenis_soalan']}',
+'{$_SESSION['score']}',NULL)";
+mysqli_query($hubung,$query) or die("<br />".$query);
 ?>
  
 <html>

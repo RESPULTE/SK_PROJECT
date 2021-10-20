@@ -3,7 +3,7 @@
 require 'sambung.php';
 //TERIMA FAIL POST 
 if(isset($_POST["import"])){ 
-$filename=$_FILES["file"]["tmp_name"]; 
+	$filename=$_FILES["file"]["tmp_name"]; 
 	if($_FILES["file"]["size"] > 0){
 	$file = fopen($filename, "r");
 	while (($getData = fgetcsv($file, 10000, ",")) !== FALSE){
@@ -24,7 +24,7 @@ $filename=$_FILES["file"]["tmp_name"];
 	//MSG POP UP JIKA BERJAYA
 	else{
 	 echo "<script>alert('Pindah naik fail CSV berjaya'); 
-	 window.location='senarai_pelajar.php'</script>";
+	 window.location='pelajar_senarai.php'</script>";
 	}
 	              }
 	              fclose($file);

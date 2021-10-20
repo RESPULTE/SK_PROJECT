@@ -47,19 +47,19 @@ function delete_row(rowno)
 <input size='2%' type="text" value="<?php echo $next; ?>" name="nom_soalan" readonly />
 </p>
 <p>
-<label>Soalan:</label><BR>
+<label>Soalan:</label><br>
 <textarea id="paparan_soalan" name="paparan_soalan" rows="7" cols="105" required></textarea> 
 </p>
 <p>
-<label>Gambar<small style="color:red"> *Jika perlu </sma11></label><br>
+<label>Gambar<small style="color:red"> *Jika perlu </small></label><br>
 <input type="file" name="gambar"/>
 </p>
-<label>Cadangan Jawapan:</label><BR>
+<label>Cadangan Jawapan:</label><br>
 <small>*Boleh tambah jawapan yang mungkin</small>
-</span><BR>
+</span><br>
 <table id="jawapan" align=left width ='30%' border=0>
 <tr id="rowl">
-<td><input type="text" name="idJAWAPAN1[]" placeholder="Taip Cadangan Jawapan" size="70%" >
+<td><input type="text" name="idJAWAPAN1[]" placeholder="Taip Cadangan Jawapan" size="70%" required>
 </td> 
 <td><input type="text" name="idTOPIK[]" value="<?php echo $idTopik; ?>" hidden></td>
 </tr>

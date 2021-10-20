@@ -18,7 +18,7 @@ include 'header.php';
 
 <!-- PANGGIL FAIL IMPORT CSV-->
 <form action="import_csv.php" method="post" name="upload_excel" enctype="multipart/form-data">
-<input type="file" name="file" id="file" class="input-large"><br>
+<input type="file" name="file" id="file" class="input-large" required><br>
 <button type="submit" id="submit" name="import" >Upload</button>
  </center> 
  </form>

@@ -46,7 +46,7 @@ $editMARKAH= $dataTopik['markah'];
 <td name="center">Subjek </td>
 <td><select name="idsubjek" required>
 <option selected value="<?php echo $dataSubjek['idsubjek']; ?>">
-<?php echo $dataSubjek['subjek']; ?>
+<?php echo $dataSubjek['subjek'] ?? null; ?>
 </option>
 <?php $data2=mysqli_query($hubung,"SELECT * 
   FROM subjek "); 

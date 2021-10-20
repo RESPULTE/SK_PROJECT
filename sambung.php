@@ -6,7 +6,7 @@ $user="root";
 //BIARKAN KOSONG
 $password="";
 //BOLEH UBAH NAMA P.DATA
-$database="spp_limyeuchuan_5t1";
+$database="lmao";
 $hubung=mysqli_connect($host, $user, $password, $database);
 if (mysqli_connect_errno()) {
 	echo "Proses sambung ke pangkalan data gagal";

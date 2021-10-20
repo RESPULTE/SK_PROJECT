@@ -5,6 +5,7 @@ include 'header.php';
 ?>
 
 <?php
+
 //DAPATKAN ID TOPIK
 $topik_pilihan=$_GET['idtopik']; 
 $_SESSION['idtopik'] = $topik_pilihan;
@@ -29,9 +30,12 @@ $result = mysqli_query($hubung,$query);
 $question = mysqli_fetch_assoc($result);
 
 // PILIHAN JAWAPAN
-$query = "SELECT * from pilihan where nom_soalan = $number AND idsoalan='$question[idsoalan]'";
+if (isset($question['idsoalan'])){
+  $query = "SELECT * from pilihan where nom_soalan = $number AND idsoalan='$question[idsoalan]'";
 //PAPARKAN
 $choices = mysqli_query($hubung,$query);
+}
+
 ?>
 
 <html>
@@ -67,18 +71,20 @@ $jawapan=$_GET['semakan'];
 <hr>
 Soalan <?php echo $number; ?> dari <?php echo $total; ?> 
 <br><br>
-<?php echo $question['soalan'] ?>
+<?php echo $question['soalan'] ?? null; ?>
 <br> 
 <?php
-if ($question['gambarajah']==NULL){
-}else{
-echo "<img src='gambar/".$question['gambarajah']."'width='30%' height='30%'/>";
+if (isset($question['gambarajah'])){
+  echo "<img src='gambar/".$question['gambarajah']."'width='10%' height='30%'/>";
+}
+else {
+  echo '[tiada img]';
 }
 ?>
 </P>
 <form method="post" action="soalan_semak.php">
 <?php
-if ($question['jenis']==1){
+if (isset($question['jenis']) and $question['jenis']==1){
   ?>
   <ul>
   <?php 
@@ -86,7 +92,7 @@ if ($question['jenis']==1){
   ?>
   <li>
     <input name="choice" type="radio" value="<?php echo $row['idpilihan']; ?>" required />
-    <?php echo $row['pilihan_jawapan'];?>
+    <?php echo $row['pilihan_jawapan'] ?? null;?>
     </li> 
     <?php 
     endwhile;
@@ -95,11 +101,19 @@ if ($question['jenis']==1){
 <?php 
 }else{
 ?>
-  <input type="text" name="idJAWAPAN" placeholder="Taip Jawapan Di sini" size='70%'>
+  <input type="text" name="idJAWAPAN" placeholder="Taip Jawapan Di sini" size='70%' required>
 <?php
 }
 ?>
+<?php
+if (isset($question['soalan'])){
+?>
 <input type="submit" name="submit" value="HANTAR" />
+<?php
+} else{
+  echo 'tiada soalan';
+}
+?>
 <input type="hidden" name="number" value="<?php echo $number; ?>" />
 <input type="hidden" name="jenis_soalan" value="<?php echo $question['jenis']; ?>" />
 <input type="hidden" name="idsoalan" value="<?php echo $question['idsoalan']; ?>" />

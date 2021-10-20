@@ -44,7 +44,7 @@ $infoTopik=mysqli_fetch_array($topik);
  //ARAHAN SQL, PELAJAR MARKAH 1 DAN KE ATAS SAHAJA
 $rekod=mysqli_query($hubung,"SELECT idpengguna,idtopik,
 MAX(skor), COUNT(idpengguna) AS 'Bil' FROM perekodan WHERE
-idtopik='$topik_pilihan' GROUP BY idpengguna HAVING MAX(skor)>=1");
+idtopik='$topik_pilihan' GROUP BY idpengguna");
 while ($infoRekod=mysqli_fetch_array($rekod)){
   $pelajar=mysqli_query($hubung,"SELECT * FROM pengguna 
   WHERE idpengguna='$infoRekod[idpengguna]'"); 
@@ -53,7 +53,7 @@ while ($infoRekod=mysqli_fetch_array($rekod)){
   <tr style='font-size:16px'>
     <td><?php echo $no; ?></td>
     <td><?php echo $infoPelajar['nama']; ?></td> 
-	 <td><?php echo $infoRekod['MAX(skor)'];; ?></td> 
+	 <td><?php echo $infoRekod['MAX(skor)']; ?></td> 
 	 <td><?php echo $infoRekod['Bil'];; ?></td>
   </tr>
 <?php $no++; } ?>

@@ -11,7 +11,13 @@ $guru = $_SESSION['idpengguna'];
 //SAMBUNG KE TABLE
 
 $result = mysqli_query($hubung, "SELECT * FROM subjek WHERE idsubjek='$subjek_pilihan'");
+$subjek = null;
+while($res = mysqli_fetch_array($result))
+{
+//Paparkan nilai asal
+$subjek = $res['subjek'];
 
+}
 ?>
 
 <html>
@@ -19,13 +25,7 @@ $result = mysqli_query($hubung, "SELECT * FROM subjek WHERE idsubjek='$subjek_pi
 <body>
 
 <center>
-<h2>SENARAI TOPIK SUBJEK: <?php 
-while($res = mysqli_fetch_array($result))
-{
-//Paparkan nilai asal
-$subjek = $res['subjek'];
-echo $subjek;
-} ?></h2>
+<h2>SENARAI TOPIK SUBJEK: <?php echo $subjek; ?></h2>
 </center>
 
 <main>
@@ -52,7 +52,7 @@ while ($info1=mysqli_fetch_array($data1))
 <tr>
 <td><?php echo $no; ?></td>
 <td><?php echo $info1['topik']; ?></td>
-<td><a href="tambah_soalan.php?idtopik=
+<td><a href="soalan_baru1.php?idtopik=
 <?php echo $info1['idtopik'];?>"><button>Tambah
 </button></a>
 <a href="papar_soalan.php?idtopik=

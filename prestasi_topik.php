@@ -32,7 +32,7 @@ while ($infoTopik=mysqli_fetch_array($topik)){
 ?>
   <tr>
     <td><?php echo $no; ?></td>
-     <td><?php echo $infoSubjek['subjek']; ?></td>
+     <td><?php echo $infoSubjek['subjek'] ?? null; ?></td>
      <td><?php echo $infoTopik['topik']; ?></td> 
 	 <td><?php echo $infoJawab['bil']; ?></td>
      <td>
