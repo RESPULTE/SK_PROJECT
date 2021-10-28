@@ -1,3 +1,45 @@
+<style>
+.btn1 {
+  border: 3px solid;
+  margin: 3px;
+  border-radius: 5px;
+  transition: all 0.3s;
+  color: black;
+  font-size: 25;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+.pop{
+  border-style: solid;
+  border-color: orange;
+  background-color: lightyellow;
+  color: darkorange;
+  width: 70%;
+}
+
+.info2 {
+  font-size: 20;
+  padding: 0px 4px;
+  text-align: center;
+  border-color: forestgreen;
+  background-color: lightgreen;
+  color: darkgreen;
+}
+.info2:hover {
+  background: white;
+  color: darkgreen;
+}
+.info2:focus{
+  background: white;
+  color: darkgreen;
+}
+
+input[type="submit"] {
+    display: none;
+}
+
+</style>
+
 <?php
 require 'keselamatan.php';
 require 'sambung.php';
@@ -20,15 +62,16 @@ if (isset($_POST['submit'])){
   $insert_row=mysqli_query($hubung,$query);
   $last_id = mysqli_insert_id($hubung);
   $_SESSION['idtopik']=$last_id;
+
 if($jenis_soalan=="mcq"){
-  echo "<script>alert('Topik baru telah ditambah'); window.location=
-  'soalan_baru1.php?idtopik=$last_id' </script>";
+  echo "<script>alert('Topik baru telah ditambah'); window.location='soalan_baru1.php?idtopik=$last_id' </script>";
 }
+
 if($jenis_soalan=='fib'){
   echo "<script>alert('Topik baru telah ditambah');        window.location='soalan_baru2.php?idtopik=$last_id' </script>";	
 }
 }
-$subjek_pilihan = $_GET['idsubjek'];
+$subjek_pilihan = $_SESSION['idsubjek'];
 $result = mysqli_query($hubung, "SELECT * FROM subjek WHERE idsubjek='$subjek_pilihan'");
 $res = mysqli_fetch_array($result);
 $_SESSION['idsubjek']=$subjek_pilihan;
@@ -42,7 +85,7 @@ $next=$total+1;
 <html>
   <head><?php include 'menu.php'; ?></head>
   <body>
-<center><h2>TAMBAH TOPIK</h2></center>
+<center><h2 class="pop">TAMBAH TOPIK</h2></center>
       <main>
 <table width="70%" border="0" align="center">
   <tr>
@@ -51,26 +94,31 @@ $next=$total+1;
 <tr>
 <td align="right">SUBJEK:</td>
 <td>
+<h2 style="font-size: 25px; color: forestgreen; margin-bottom: -3px;">
 <?php
   $paparsubjek = $res['subjek'];
   echo $paparsubjek;
 ?>
+</h2>
 <input type="text" value="<?php echo $subjek_pilihan; ?>" name="subjek" hidden /></td> 
 </tr> 
 <tr>
 <td align="right">BIL.:</td>
-<td><?php echo $next; ?>
-<input type="text" value="<?php echo $next; ?>"name="nom_soalan" hidden /></td> 
+<td>
+  <h2 style="font-size: 25px; color: forestgreen; margin-bottom: -3px;">
+  <?php echo $next; ?>
+</h2>
+<input style="font-size: 22px; color: forestgreen;" type="text" value="<?php echo $next; ?>"name="nom_soalan" hidden /></td> 
 </tr>
 <tr>
 <td align="right">TOPIK:</td>
-<td><input type="text" name="topik" required/></td>
+<td><input class="btn1 info2" style="font-size: 22px;"  type="text" name="topik" required/></td>
 </tr> 
 <tr>
 <td align="right">FORMAT SOALAN:</td>
 <td>
-  <select name="jenis"  required>
-    <option hidden selected value="">PILIH</option>
+  <select name="jenis" class="btn1 info2" style="font-size: 22px; color: forestgreen;"  required>
+    <option hidden selected value="">PILIH FORMAT SOALAN</option>
   	<option value='mcq'>Pelbagai Jawapan / Benar-Palsu</option>
     <option value='fib'>Isi Tempat Kosong</option> 
 	</select>
@@ -78,11 +126,17 @@ $next=$total+1;
 </tr> 
 <tr> 
 <td align="right">MARKAH:</td>
-<td><input type="number" name="markah" max="100" size="10" required />	
+<td><input class="btn1 info2" style="font-size: 22px; color: forestgreen;" type="number" name="markah" max="100" size="10" required />	
 </td> 
 </tr> 
 <tr><td></td>
-<td><input type="submit" name="submit" value="TAMBAH" />
+<td>
+  <label>
+   <button class="btn1 info" style="font-size: 25px;" type="submit" name="submit">
+    TAMBAH
+  </button>   
+  </label>
+ 
 </td> 
 </tr>
 </form>

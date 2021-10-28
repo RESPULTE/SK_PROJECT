@@ -1,3 +1,24 @@
+<style type="text/css">
+.pop{
+  border-style: solid;
+  border-color: orange;
+  background-color: lightyellow;
+  color: darkorange;
+  width: 70%;
+}
+.kill{
+  color: white; 
+  border: border: 3px solid red; 
+  border-radius: 5px; 
+  transition: all 0.5s;
+  background-color: red; 
+  font-size: 20px;
+}
+.kill:hover{
+  background: white;
+  color:  red;
+}
+</style>
 <?php
 //WAJIB FAIL INI
 require 'sambung.php';
@@ -8,7 +29,7 @@ include 'header.php';
 <html>
 <head><?php include 'menu.php'; ?></head>
   <body> 
-<center><h2>SENARAI GURU BERDAFTAR</h2></center>
+<center><h2 class="pop">SENARAI GURU BERDAFTAR</h2></center>
 <main>	
 <table width="70%" border="0" align="center" style='font-size:16px'>
   <tr>
@@ -37,7 +58,7 @@ while ($infol=mysqli_fetch_array($data1)){
      <td><?php echo $infoSoalan['bilsoalan'] ?? ''; ?></td>
 <td><a href="hapus_guru.php?idpengguna=<?php echo $infol['idpengguna'];?>" 
 onclick="return confirm('AWAS!!, Semua rekod akan dihapuskan, Anda Pasti?')">
-<button>Hapus</button></a></td>
+<button class='kill'>Hapus</button></a></td>
   </tr>
   <?php $no++; } ?>
 </table>

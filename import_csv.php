@@ -6,7 +6,7 @@ if(isset($_POST["import"])){
 	$filename=$_FILES["file"]["tmp_name"]; 
 	if($_FILES["file"]["size"] > 0){
 	$file = fopen($filename, "r");
-	while (($getData = fgetcsv($file, 10000, ",")) !== FALSE){
+	while (($getData = fgetcsv($file, 10000, ",")) != FALSE){
 
 	//TAMBAH DALAM P.DATA
 	$import = "INSERT INTO pengguna(idpengguna,password,nama,jantina,aras)

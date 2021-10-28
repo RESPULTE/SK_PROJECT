@@ -1,3 +1,80 @@
+<style>
+  label {
+    font-size: 20;
+  }
+.btn1 {
+  border: 3px solid black;
+  margin: 3px;
+  border-radius: 5px;
+  transition: all 0.3s;
+  color: black;
+  font-size: 25;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+.pop{
+  border-style: solid;
+  border-color: orange;
+  background-color: lightyellow;
+  color: darkorange;
+  width: 70%;
+}
+
+/* Blue */
+.info {
+  border-color: #2196F3;
+  background-color: lightcyan;
+  color: dodgerblue;
+}
+
+.info:hover {
+  background: #2196F3;
+  color: white;
+}
+.info3 {
+  width: 90%;
+  border-color: #2196F3;
+  background-color: lightcyan;
+  color: dodgerblue;
+}
+
+.info2 {
+  font-size: 20;
+  padding: 0px 4px;
+  text-align: center;
+  border-color: forestgreen;
+  background-color: lightgreen;
+  color: darkgreen;
+}
+.info2:hover {
+  background: forestgreen;
+  color: white;
+}
+.info3:hover {
+  background: #2196F3;
+  color: white;
+}
+.warn {
+  border-color: orange;
+  background-color: lightyellow;
+  color: darkorange;
+}
+.warn1 {
+  border-color: orange;
+  background-color: lightyellow;
+  color: darkorange;
+}
+.warn:hover {
+  background: orange;
+  color: white;
+}
+input[type="submit"] {
+    display: none;
+}
+input[type="file"] {
+    display: none;
+}
+</style>
 <?php
 require 'sambung.php'; 
 require 'keselamatan.php'; 
@@ -59,7 +136,7 @@ if (isset($_POST['submit'])){
 
 }
 //3UMLAH SOALAN
-$query = "SELECT * FROM soalan WHERE idtopik='$idtopik' AND jenis='1'";
+$query = "SELECT * FROM soalan WHERE idtopik='$idtopik'";
 $soalan = mysqli_query($hubung,$query); 
 $total=mysqli_num_rows($soalan);
 $next=$total+1;
@@ -67,7 +144,7 @@ $next=$total+1;
 <html>
   <head><?php include 'menu.php'; ?></head>
   <body>
-<center><h2>TAMBAH SOALAN BARU</h2></center>
+<center><h2 class="pop">TAMBAH SOALAN BARU</h2></center>
   <main>
 <table width="70%" border="0" align="center">
   <tr>
@@ -76,40 +153,50 @@ $next=$total+1;
 <p>
 <label>Bilangan Soalan</label>
 <input type="text" value="<?php echo $next; ?>" name="nom_soalan" size="5" readonly />
-</P> 
+</p>
+<br> 
+<label class="warn1" style="font-size: 40; background-color: white;">Soalan</label>
 <p> 
-<label>Soalan</label>
-<textarea id="paparan_soalan" name="paparan_soalan" 
-rows="7" cols="105" required></textarea>
+<textarea id="paparan_soalan" name="paparan_soalan" style="margin-top: -10px; margin-bottom: 20px;" 
+rows="7" cols="105" required class="btn1 info3"></textarea>
 </p> 
-<p> 
-<label>Gambar<br>
-<small style="color:red">*Jika perlu</small></label>
-     <input type="file" name="gambar"/>
-</p> 
+<br>
+<label class="btn1 info2">
+  <input  type="file" name="gambar"/> 
+  UPLOAD GAMBAR
+</label>
+<br>
 <p>
      <label>Pilihan 1: </label>
-<input type="text" name="pilih1" size="50"/>
+<input type="text" name="pilih1" size="50" class="btn1 info" required style=" margin-bottom: 20px;"/>
 </p> 
 <p>
      <label>Pilihan 2: </label>
-<input type="text" name="pilih2" size="50"/>
+<input type="text" name="pilih2" size="50" class="btn1 info" required style=" margin-bottom: 20px;"/>
 </p> 
 <p>
      <label>Pilihan 3: </label> 
-<input type="text" name="pilih3" size="50"/>
+<input type="text" name="pilih3" size="50" class="btn1 info" required style=" margin-bottom: 20px;"/>
 </p>
 <p>
      <label>Pilihan 4: </label>
-<input type="text" name="pilih4" size="50"/>
+<input type="text" name="pilih4" size="50" class="btn1 info" required style=" margin-bottom: 20px;"/>
 </p>
 <p>
 	 <label>Pilihan Jawapan [1-4] </label>
-<input type="number" name="jawapan_betul" size="5" min="1" max="4" required />
+<input type="number" class="btn1 info" name="jawapan_betul" size="5" min="1" max="4"  required />
 </p> 
+<br>
 <fieldset><legend>MENU</legend>
-<CENTER><input type="submit" name="submit" value="CIPTA" />
-<button onclick="window.location='pilih_subjek.php'">TAMAT</button>
+<CENTER>
+<label>
+   <button class="btn1 info" type="submit" name="submit">
+  CIPTA 
+</button> 
+</label>
+
+<button onclick="window.location.href='soalan_baru2.php?idtopik=<?php echo $idtopik;?>'" class="btn1 warn" >+FIB</button>
+<button onclick="window.location.href='pilih_subjek.php'" class="btn1 warn" >TAMAT</button>
      </CENTER> 
 </fieldset>
 <p>

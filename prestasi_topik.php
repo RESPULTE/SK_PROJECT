@@ -1,3 +1,63 @@
+<style>
+.pop{
+  font-size: 35;
+  border-style: solid;
+  border-color: orange;
+  background-color: lightyellow;
+  color: darkorange;
+  width: 70%;
+}
+.btn {
+  border: 3px solid black;
+  border-radius: 5px;
+  color: black;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.b3tn {
+  border: 3px solid black;
+  border-radius: 5px;
+  font-size: 18;
+  margin: 3px;
+  color: black;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.info2 {
+  border-color: forestgreen;
+  background-color: lightgreen;
+  color: darkgreen;
+}
+.info2:hover {
+  background: forestgreen;
+  color: white;
+}
+/* Blue */
+.info {
+  font-size: 20;
+  border-color: #2196F3;
+  background-color: lightcyan;
+  color: dodgerblue
+}
+
+.info:hover {
+  background: #2196F3;
+  color: white;
+}
+.kill{
+  color: white; 
+  border: border: 3px solid red; 
+  border-radius: 5px; 
+  transition: all 0.5s;
+  background-color: red; 
+  font-size: 20px;
+}
+.kill:hover{
+  background: white;
+  color:  red;
+}
+</style>
 <?php
 require 'sambung.php';
 require 'keselamatan.php';
@@ -9,7 +69,7 @@ $guru = $_SESSION['idpengguna'];
 <html>
   <head><?php include 'menu.php'; ?></head>
   <body>
-<center><h2>PRESTASI PELAJAR BERDASARKAN SUBJEK-TOPIK</h2> 
+<center><h2 class="pop">PRESTASI PELAJAR BERDASARKAN SUBJEK-TOPIK</h2> 
 </center>
       <main>
 <table width="70%" border="0" align="center" 
@@ -35,9 +95,9 @@ while ($infoTopik=mysqli_fetch_array($topik)){
      <td><?php echo $infoSubjek['subjek'] ?? null; ?></td>
      <td><?php echo $infoTopik['topik']; ?></td> 
 	 <td><?php echo $infoJawab['bil']; ?></td>
-     <td>
+     <td align="center">
     <a href="laporan_guru.php?idtopik=<?php echo $infoTopik['idtopik'];?>">
-      <button>Papar</button>
+      <button class="b3tn info2">Papar</button>
     </a></td>
   </tr>
   <?php $no++; } ?>

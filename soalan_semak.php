@@ -3,7 +3,7 @@ require 'sambung.php';
 ?>
 
 <?php 
-if(!isset(($_SESSION))){
+if(!isset($_SESSION)){
      session_start();
 }
 
@@ -22,7 +22,7 @@ if($_POST){
      $selected_choice = $_POST['choice'];
      $jawapan_taip = trim(strtoupper($_POST['idJAWAPAN'] ?? ''));
      //JUMLAH SOALAN
-     $query="SELECT * FROM soalan where idtopik=$topik_pilihan AND jenis=$jenis_soalan";
+     $query="SELECT * FROM soalan where idtopik=$topik_pilihan";
      $results = mysqli_query($hubung,$query);
      $total=mysqli_num_rows($results);
      //SEMAK JAWAPAN BAGI SOALAN JENIS MCQ/TF 
@@ -44,6 +44,7 @@ if($_POST){
      if($jenis_soalan==2){
 
 //SEMAK JAWAPAN
+$_SESSION['jenis_soalan']=2;
 $q = mysqli_query($hubung, "SELECT * FROM pilihan WHERE
 idsoalan='$idquestion' AND nom_soalan = '$number' AND
 pilihan_jawapan = '$jawapan_taip'");
@@ -58,7 +59,7 @@ $row = mysqli_num_rows($q);
 	 
 	 
 if($number == $total){
-     header("Location: soalan_markah.php");
+     header("Location: soalan_markah.php?idtopik=".$_SESSION['idtopik']);
      exit();
 }else {
      header("Location: soalan_papar.php?semakan=".$semakan."&idtopik=".$topik_pilihan."&n=".$next."&score=".$_SESSION['score']);

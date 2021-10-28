@@ -39,8 +39,7 @@ $no=1;
 $rekod=mysqli_query($hubung,"SELECT * FROM topik");
 while ($infoRekod=mysqli_fetch_array($rekod)){
 //Sambung ke table soalan	
-  $soalan=mysqli_query($hubung,"SELECT idtopik,jenis,COUNT(idtopik) as 'bil' FROM soalan where
-  idtopik='$infoRekod[idtopik]'");
+  $soalan=mysqli_query($hubung,"SELECT idtopik,jenis,COUNT(idtopik) as 'bil' FROM soalan where idtopik='$infoRekod[idtopik]'");
   $infoSoalan=mysqli_fetch_array($soalan);
 	 
 //Sambung ke table subjek 
@@ -49,7 +48,7 @@ $infoSubjek=mysqli_fetch_array($subjek);
 ?>
   <tr style='font-size:16px'>
     <td><?php echo $no; ?></td>
-    <td><?php echo $infoSubjek['subjek']; ?></td>
+    <td><?php echo $infoSubjek['subjek'] ?? null; ?></td>
 	 <td><?php echo $infoRekod['topik']; ?></td>
      <td align="center"><?php
      if ($infoSoalan['jenis']==1){ 

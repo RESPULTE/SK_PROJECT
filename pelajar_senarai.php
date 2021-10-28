@@ -1,3 +1,25 @@
+<style type="text/css">
+  .pop{
+  border-style: solid;
+  border-color: orange;
+  background-color: lightyellow;
+  color: darkorange;
+  width: 70%;
+}
+.kill{
+  color: white; 
+  border: border: 3px solid red; 
+  border-radius: 5px; 
+  transition: all 0.5s;
+  background-color: red; 
+  font-size: 20px;
+}
+.kill:hover{
+  background: white;
+  color:  red;
+}
+
+</style>
 <?php
 require 'sambung.php';
 require 'keselamatan.php';
@@ -6,7 +28,7 @@ include 'header.php';
 <html>
 <head><?php include 'menu.php'; ?></head> 
   <body>
-     <center><h2>SENARAI PELAJAR BERDAFTAR</h2></center> 
+     <center><h2 class="pop">SENARAI PELAJAR BERDAFTAR</h2></center> 
 	  <main>
 <table width="70%" border="0" align="center" 
 style='font-size:16px'>
@@ -32,7 +54,7 @@ while ($infol=mysqli_fetch_array($data1))
 	  <td><?php echo $infol['jantina']; ?></td> 
 	 <td><a href="hapus_pelajar.php?idpengguna=<?php echo $infol['idpengguna'];?>"
 onclick="return confirm('AWAS!, Semua rekod yang berkaitan akan dihapuskan, Anda Pasti?')">
-<button>HAPUS</button> 
+<button class="kill">HAPUS</button> 
 </a></td>
   </tr>
   <?php $no++; } ?>

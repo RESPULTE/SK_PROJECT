@@ -2,7 +2,7 @@
 
 <hr>
 <table width="100%" border="0" align="center">
-	<tr style='font-size: 14px'>
+	<tr style='font-size: 22px'>
 	<td width="5%"><b>Bil.</b></td>
 	<td width="20%"><b>Subjek</b></td>
 	<td width="50%"><b>Topik</b></td>
@@ -23,7 +23,7 @@ jenis='$infoTopik[jenis]'");
 $infoSoalan=mysqli_fetch_array($soalan);
 ?>
 
-<tr style='font-size:14px'>
+<tr style='font-size:18px'>
 <td><?php echo $no; ?></td>
 <td><?php echo $infoTopik['subjek']; ?></td>
 <td><?php echo $infoTopik['topik']; ?></td>

@@ -14,10 +14,10 @@ if (mysqli_connect_errno()) {
 }
 //SETUP HERE 4 UR SYSTEM
 $nama_sekolah="SMJK Jit Sin";
-$nama_sistem="EXPERT-SISTEM PENILAIAN KENDIRI";
+$nama_sistem="SISTEM PENILAIAN KENDIRI";
 $motto1="EXPERT E-LEARNING SYSTEM";
-$motto2="PELBAGAI JENIS SUBJEK/TOPIK UNTUK RAMAI GURU-FORMAT PELBAGAI";
-$footer="Self Monitoring Learning System ";
+$motto2="SISTEM PENILAIAN KENDIRI SEKOLAH SMJK JIT SIN";
+$footer="by Lim Yeu Chuan 5T1";
 $logo="logo.png";
 $lencana="lencana.png";
 ?>

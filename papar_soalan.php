@@ -1,3 +1,131 @@
+<style>
+.pop{
+  border-style: solid;
+  border-color: orange;
+  background-color: lightyellow;
+  color: darkorange;
+  width: 70%;
+}
+.btn {
+  border: 3px solid black;
+  border-radius: 5px;
+  color: black;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.b3tn {
+  border: 3px solid black;
+  border-radius: 5px;
+  font-size: 18;
+  margin: 3px;
+  color: black;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.info2 {
+  transition: all 0.3s;
+  border-color: forestgreen;
+  background-color: lightgreen;
+  color: darkgreen;
+}
+.info2:hover {
+  background: forestgreen;
+  color: white;
+}
+/* Blue */
+.info {
+  font-size: 20;
+  border-color: #2196F3;
+  background-color: lightcyan;
+  color: dodgerblue
+}
+.info:focus{
+  background: dodgerblue;
+  color: white;
+}
+.info2:focus{
+  background: white;
+  color: darkgreen;
+}
+.kill{
+  color: white; 
+  border: border: 3px solid red; 
+  border-radius: 5px; 
+  transition: all 0.5s;
+  background-color: red; 
+  font-size: 20px;
+}
+.kill:hover{
+  background: white;
+  color:  red;
+}
+/* Customize the label (the container) */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+</style>
 <?php
 require 'sambung.php';
 require 'keselamatan.php'; 
@@ -40,7 +168,7 @@ $choices = mysqli_query($hubung,$query);
 
 <html>
   <body>
-<center><h1>TOPIK: <?php echo $getTopik['topik'];?></h1> 
+<center><h2 class="pop">TOPIK: <?php echo $getTopik['topik'];?></h2> 
 </center>
 <main>
 <table width="70%" border="0" align="center">
@@ -71,10 +199,13 @@ $jawapan=$_GET['semakan'];
 <hr>
 Soalan <?php echo $number; ?> dari <?php echo $total; ?> 
 <br><br>
-<?php echo $question['soalan'] ?? null; ?>
+<p class="bt3n info">
+  <?php echo $question['soalan'] ?? null; ?>
+</p>
+
 <br> 
 <?php
-if (isset($question['gambarajah'])){
+if ($question['gambarajah'] != null){
   echo "<img src='gambar/".$question['gambarajah']."'width='10%' height='30%'/>";
 }
 else {
@@ -91,24 +222,36 @@ if (isset($question['jenis']) and $question['jenis']==1){
   while($row=mysqli_fetch_assoc($choices)):
   ?>
   <li>
-    <input name="choice" type="radio" value="<?php echo $row['idpilihan']; ?>" required />
-    <?php echo $row['pilihan_jawapan'] ?? null;?>
+  <?php if($row['pilihan_jawapan'] != null){
+  ?>
+    <label class="container">
+      <input name="choice" type="radio" value="<?php echo $row['idpilihan']; ?>" required checked="checked"/>
+
+      <p class="pop"><?php echo $row['pilihan_jawapan'] ?? null;?></p>
+      <span class="checkmark">
+      </span>
+    </label>
+    <?php }?>
     </li> 
     <?php 
     endwhile;
     ?>
   </ul> 
 <?php 
-}else{
+}else if (isset($question['jenis']) and $question['jenis']==2){
 ?>
-  <input type="text" name="idJAWAPAN" placeholder="Taip Jawapan Di sini" size='70%' required>
+  <input class="b3tn info" type="text" name="idJAWAPAN" placeholder="Taip Jawapan Di sini" size='70%' required>
+  <br>
 <?php
 }
 ?>
 <?php
 if (isset($question['soalan'])){
 ?>
-<input type="submit" name="submit" value="HANTAR" />
+<br>
+<button type="submit" name="submit" class="bt3n info2" style="font-size: 20;">
+  HANTAR
+</button>
 <?php
 } else{
   echo 'tiada soalan';

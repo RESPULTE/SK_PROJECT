@@ -1,3 +1,43 @@
+<style>
+.b3tn {
+  border: 3px solid black;
+  border-radius: 5px;
+  font-size: 18;
+  margin: 3px;
+  color: black;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.pop{
+  border-style: solid;
+  border-color: orange;
+  background-color: lightyellow;
+  color: darkorange;
+  width: 70%;
+}
+/* Blue */
+.info {
+  border-color: #2196F3;
+  background-color: lightcyan;
+  color: dodgerblue;
+}
+
+.info2 {
+  border-color: forestgreen;
+  background-color: lightgreen;
+  color: darkgreen;
+}
+
+.info:hover {
+  background: #2196F3;
+  color: white;
+}
+.info2:hover {
+  background: forestgreen;
+  color: white;
+}
+</style>
 <?php
 require 'sambung.php'; 
 require 'keselamatan.php'; 
@@ -7,7 +47,7 @@ include 'header.php';
 <html>
 <head><?php include 'menu.php'; ?></head>
 <body>
-<center><h2>SENARAI SUBJEK</h2></center>
+<center><h2 class="pop">SENARAI SUBJEK</h2></center>
       <main>
 <table width="70%" border="0" align="center" 
 style='font-size:16px'>
@@ -25,8 +65,8 @@ style='font-size:16px'>
   <tr>
    <td><?php echo $no; ?></td>
    <td><?php echo $infol['subjek']; ?></td>
-   <td><a href="papar_topik.php?idsubjek=<?php echo $infol['idsubjek'];?>"><button>PAPAR</button></a>
-  <a href="tambah_topik.php?idsubjek=<?php echo $infol['idsubjek'];?>"><button>CIPTA</button></a></td>
+   <td><a href="papar_topik.php?idsubjek=<?php echo $infol['idsubjek'];?>"><button class="b3tn info2" >PAPAR</button></a>
+  <a href="tambah_topik.php?idsubjek=<?php echo $infol['idsubjek'];?>"><button class="b3tn info" >CIPTA</button></a></td>
   </tr>
   <?php $no++; } ?>  
 </table>
