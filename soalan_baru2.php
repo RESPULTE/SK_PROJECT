@@ -132,7 +132,9 @@ function add_row()
 <input class="bt4n info2" type="bt4n" onclick="add_row();" value="TAMBAH JAWAPAN">
 <input class="bt4n info" type="submit" name="submit" value="CIPTA">
 <button class="bt4n warn" onclick="window.location.href='soalan_baru1.php?idtopik=<?php echo $idTopik;?>'">+MCQ</button>
-<button class="bt4n warn" onclick="window.location.href='pilih_subjek.php'" >TAMAT</button>
+
+<input class="bt4n warn" type="reset" name="Reset" onclick="window.location.href='pilih_subjek.php'" value='TAMAT'>
+
   </center></fieldset>
   </td></tr>
   </table>

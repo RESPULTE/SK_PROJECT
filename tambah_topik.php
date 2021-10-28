@@ -71,7 +71,7 @@ if($jenis_soalan=='fib'){
   echo "<script>alert('Topik baru telah ditambah');        window.location='soalan_baru2.php?idtopik=$last_id' </script>";	
 }
 }
-$subjek_pilihan = $_SESSION['idsubjek'];
+$subjek_pilihan = $_GET['idsubjek'];
 $result = mysqli_query($hubung, "SELECT * FROM subjek WHERE idsubjek='$subjek_pilihan'");
 $res = mysqli_fetch_array($result);
 $_SESSION['idsubjek']=$subjek_pilihan;

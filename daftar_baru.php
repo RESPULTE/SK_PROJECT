@@ -29,23 +29,23 @@
   color: white;
 }
 
-.info1 {
+.info13131 {
   font-size: 25;
-  border-color: forestgreen;
-  border: 3px solid forestgreen;
-  background-color: lightgreen;
-  color: forestgreen;
+  border-color: orange;
+  border: 3px solid orange;
+  background-color: lightyellow;
+  color: orange;
 }
 
-.info1:hover {
-  border-color: forestgreen;
+.info13131:hover {
+  border-color: orange;
   background: white;
-  color: forestgreen;
+  color: orange;
 }
-.info1:focus{
-  border-color: forestgreen;
+.info13131:focus{
+  border-color: orange;
   background: white;
-  color: darkgreen;
+  color: darkorange;
 }
 </style>
 
@@ -94,33 +94,33 @@ $hasil = mysqli_query($hubung, $daftar);
 <label style="font-size: 20;">Nombor Kad Pengenalan</label><br>
  <input onblur="checklength(this)" type="text"
 name="idpengguna" placeholder="Tanpa tanda -"
-maxlength='9'size="25" class="btn3 info1" 
+maxlength='12'size="25" class="btn3 info13131" 
 onkeypress='return event.charCode >= 48 && event.charCode <= 57' required autofocus style="font-size: 20;"/>
 <script>
 function checkLength(el) {
 	if (el.value. length 1 - 10) {
-		alert("Nombor KP mesti 10 digit")
+		alert("Nombor KP mesti 12 digit")
 	}
 }
 </script>
 <br>
 <label style="font-size: 20;">Katalaluan</label><br>
 <input type="password" name="password" id="password"
-placeholder="4 digit sahaja" size="10" class="btn3 info1" 
+placeholder="10 digit sahaja" size="10" class="btn3 info13131" 
 maxlength='10' onkeypress='return event.charCode >= 48 && event.charCode <= 57' required style="font-size: 20;">
 <br>
 <label style="font-size: 20;">Nama</label><br>
-<input class="btn3 info1" type="text" name="nama" placeholder="Nama Penuh Anda" size="50" required style="font-size: 20;">
+<input class="btn3 info13131" type="text" name="nama" placeholder="Nama Penuh Anda" size="50" required style="font-size: 20;">
 <br>
 <label style="font-size: 20;">Jantina</label><br>
-<select name="jantina" class="btn3 info1"  style="font-size: 20;">
+<select name="jantina" class="btn3 info13131"  style="font-size: 20;">
 <option style="font-size: 20;" value="">---Pilih---</option>
 <option style="font-size: 20;" value="LELAKI">LELAKI</option>
 <option style="font-size: 20;" value="PEREMPUAN" >PEREMPUAN</option>
 </select>
 <br>
 <label style="font-size: 20;">Aras Pengguna</label><br>
-<select name="aras" class="btn3 info1"  style="font-size: 20;">
+<select name="aras" class="btn3 info13131"  style="font-size: 20;">
 <option style="font-size: 20;" value="">---Pilih---</option>
 <option style="font-size: 20;" value="PELAJAR">PELAJAR</option>
 <option style="font-size: 20;" value="GURU">GURU</option>

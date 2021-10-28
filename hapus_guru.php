@@ -4,11 +4,11 @@ require 'keselamatan.php';
 //Dapatkan ID dari URL
 $delguru = $_GET['idpengguna'];
 $deletel=mysqli_query($hubung,"
-SELECT * FROM pengguna AS u INNER JOIN topik AS t
-ON u.idpengguna = t.idpengguna INNER JOIN soalan AS q 
-ON t.idtopik = q.idtopik INNER JOIN perekodan AS r
-ON t.idtopik = r.idtopik INNER JOIN pilihan AS c
-ON q.idsoalan = c.idsoalan WHERE u.idpengguna=$delguru"); 
+SELECT * FROM pengguna INNER JOIN topik 
+ON pengguna.idpengguna = topik.idpengguna INNER JOIN soalan 
+ON topik.idtopik = soalan.idtopik INNER JOIN perekodan 
+ON topik.idtopik = perekodan.idtopik INNER JOIN pilihan 
+ON soalan.idsoalan = pilihan.idsoalan WHERE pengguna.idpengguna=$delguru"); 
 $infoDel=mysqli_fetch_array($deletel);
 $deletel=$delguru;
 $delete2=$infoDel['idpengguna'];

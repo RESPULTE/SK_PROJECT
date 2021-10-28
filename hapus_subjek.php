@@ -3,12 +3,12 @@ require 'sambung.php';
 require 'keselamatan.php';
 $del_subjek = $_GET['idsubjek'];
 $deletel=$del_subjek;
-$delete=mysqli_query($hubung,"SELECT * FROM subjek AS s
-     INNER JOIN topik AS t ON s.idsubjek = t.idsubjek
-	 INNER JOIN soalan AS q ON t.idtopik = q.idtopik
-	 INNER JOIN perekodan AS r ON t.idtopik = r.idtopik
-	 INNER JOIN pilihan AS c ON q.idsoalan = c.idsoalan
-	 WHERE s.idsubjek=$del_subjek");
+$delete=mysqli_query($hubung,"SELECT * FROM subjek
+      INNER JOIN topik     ON subjek.idsubjek = topik.idsubjek
+	 INNER JOIN soalan    ON topik.idtopik   = soalan.idtopik
+	 INNER JOIN perekodan ON topik.idtopik   = perekodan.idtopik
+	 INNER JOIN pilihan   ON soalan.idsoalan = pilihan.idsoalan
+	 WHERE subjek.idsubjek=$del_subjek");
 $infoDel=mysqli_fetch_array($delete); 
 $delete2=$infoDel['idtopik']; 
 //Hapus rekod subjek semasa

@@ -46,7 +46,7 @@
 }
 .kill{
   color: white; 
-  border: border: 3px solid red; 
+  border: 3px solid darkred; 
   border-radius: 5px; 
   transition: all 0.5s;
   background-color: red; 

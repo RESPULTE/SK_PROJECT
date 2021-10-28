@@ -79,14 +79,15 @@ $idpengguna=$_SESSION['idpengguna'];
 <head><?php include 'menu.php'; ?></head> 
 <center><h2 class="pop">REKOD MARKAH YANG DICAPAI</h2></center> 
   <main>
-<table width="70%" border="0" align="center" style="font-size:20px">
+<table width="70%" border="1" align="center" style="border-radius: 8px; padding: 10px 10px; background-color: lightcyan; border: 2px solid dodgerblue; font-size: 20;">
   <tr>
-    <td width="2%"><b>Bil.</b></td>
-    <td width="45%"><b>Topik</b></td>
-    <td width="8%"><b>Jenis Soalan</b></td>
-    <td width="12%"><b>Tarikh/Masa</b></td>
-    <td width="4%"><b>Skor</b></td>
-     <td width="4%"><b>Markah</b></td>
+    <td style="border: 3px solid blue; text-align: center; border-radius: 5px; background-color: dodgerblue; color: white;" width="2%"><b>Bil.</b></td>
+    <td style="border: 3px solid blue; text-align: center; border-radius: 5px; background-color: dodgerblue; color: white;" width="15%"><b>Subjek</b></td>
+    <td style="border: 3px solid blue; text-align: center; border-radius: 5px; background-color: dodgerblue; color: white;" width="25%"><b>Topik</b></td>
+    <td style="border: 3px solid blue; text-align: center; border-radius: 5px; background-color: dodgerblue; color: white;" width="8%"><b>Jenis Soalan</b></td>
+    <td style="border: 3px solid blue; text-align: center; border-radius: 5px; background-color: dodgerblue; color: white;" width="20%"><b>Tarikh/Masa</b></td>
+    <td style="border: 3px solid blue; text-align: center; border-radius: 5px; background-color: dodgerblue; color: white;" width="4%"><b>Skor</b></td>
+     <td style="border: 3px solid blue; text-align: center; border-radius: 5px; background-color: dodgerblue; color: white;" width="4%"><b>Markah</b></td>
   </tr> 
  <?php 
  $no=1;
@@ -99,6 +100,9 @@ while ($info1=mysqli_fetch_array($data1)){
 $dataTopik=mysqli_query($hubung,"SELECT * FROM topik WHERE 
 idtopik='$info1[idtopik]'"); 
 $getTopik=mysqli_fetch_array($dataTopik);
+$dataSubjek=mysqli_query($hubung,"SELECT * FROM subjek WHERE 
+idsubjek='$getTopik[idsubjek]'"); 
+$getSubjek=mysqli_fetch_array($dataSubjek);
 //TABLE SOALAN, Nak dapatkan bilangan soalan
 $dataSoalan=mysqli_query($hubung,"SELECT jenis, COUNT(idtopik) as 'bil' FROM soalan WHERE idtopik='$info1[idtopik]' AND jenis='$info1[jenis]'");
 $infoSoalan=mysqli_fetch_array($dataSoalan);
@@ -106,9 +110,11 @@ $infoSoalan=mysqli_fetch_array($dataSoalan);
 $jenisSoalan=$info1['jenis'];
 $bilSoalan=$infoSoalan['bil'];
 $markah_Topik=$getTopik['markah']; 
+$subjek_ = $getSubjek['subjek'];
 ?>
-  <tr style='font-size:20px'> 
+  <tr style='font-size:20px;'> 
    <td ><?php echo $no; ?></td> 
+   <td><?php echo $getSubjek['subjek']; ?></td>
     <td><?php echo $getTopik['topik']; ?></td>
     <td align="center"><?php 
 	if($jenisSoalan==1){

@@ -8,6 +8,22 @@
   color: darkgreen;
   text-align: center;
 }
+#loll{
+  border: 3px solid blue; 
+  text-align: center; 
+  border-radius: 5px; 
+  font-size: 20;
+  background-color: dodgerblue; 
+  color: white;
+}
+#tt{
+  border-radius: 8px; 
+  padding: 10px 10px; 
+  font-size: 20;
+  text-align: center;
+  background-color: lightcyan; 
+  font-size: 20;
+}
 .pop{
   border-style: solid;
   border-color: orange;
@@ -105,13 +121,11 @@ $infoTopik=mysqli_fetch_array($topik);
     <td><center><p class="pop" style="font-size:22 ;"><strong>LAPORAN PRESTASI PELAJAR BAGI TOPIK: 
 <?php echo $infoTopik['topik']; ?></strong></center></p>
 <table width="800" border="0" align="center"> 
-</td>
-  </tr>
   <tr>
-    <td width="10"><b>Bil.</b></td>
-     <td width="500"><b>Nama Pelajar</b></td> 
-   <td width="120"><b>Skor Tertinggi</b><td> 
-  <td width="80"><b>Bil.Ujian</b></td>
+    <td id="loll" width="10"><b>Bil.</b></td>
+     <td id="loll" width="500"><b>Nama Pelajar</b></td> 
+   <td id="loll" width='200'><b>Skor Tertinggi</b></td> 
+  <td id="loll" width="120"><b>Bil.Ujian</b></td>
   </tr>
   </center>
 
@@ -124,10 +138,10 @@ while ($infoRekod=mysqli_fetch_array($rekod)){
   $infoPelajar=mysqli_fetch_array($pelajar);
 ?>
   <tr style='font-size:20px'>
-    <td><?php echo $no; ?></td>
-    <td><?php echo $infoPelajar['nama']; ?></td> 
-	 <td><?php echo $infoRekod['MAX(skor)']; ?></td> 
-	 <td><?php echo $infoRekod['Bil'];; ?></td>
+    <td id="tt"><?php echo $no; ?></td>
+    <td id="tt"><?php echo $infoPelajar['nama']; ?></td> 
+	 <td id="tt"><?php echo $infoRekod['MAX(skor)']; ?></td> 
+	 <td id="tt"><?php echo $infoRekod['Bil'];; ?></td>
   </tr>
 <?php $no++; } ?>
 </table>
@@ -135,7 +149,7 @@ while ($infoRekod=mysqli_fetch_array($rekod)){
 Jumlah Rekod:<?php echo $no-1; ?></h5><br> 
 
 <input id='printPageButton' type='button' onclick="window.location.href='index2.php';" style="margin-left: 5px;" class="btn info" value="Home "/>
-<input id='printPageButton' type='button' onclick="javascript:window.print();" style="margin-left: 5px;" class="btn info" value="Cetak Laporan"/>
+<input id='printPageButton' type='button' onclick="javascript:window.print();" style="margin-left: 5px;" class="btn info2" value="Cetak Laporan"/>
 <input id='printPageButton' type='button' onclick="window.location.href='logout.php';" style="margin-left: 5px;" class="btn info" value="Logout"/></center> 
 
 </body>

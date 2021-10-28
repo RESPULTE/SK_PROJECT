@@ -39,6 +39,12 @@
   background-color: lightcyan;
   color: dodgerblue
 }
+.info111{
+  font-size: 20;
+  border-color: #2196F3;
+  background-color: lightcyan;
+  color: dodgerblue
+}
 .info:focus{
   background: dodgerblue;
   color: white;
@@ -193,7 +199,7 @@ if($number == 1){
 <hr>
 Soalan <?php echo $number; ?> dari <?php echo $total; ?> 
            <br><br>
-<p class="bt3n info">
+<p class="bt3n info111">
   <?php echo $question['soalan'] ?? null; ?>
 </p>
 <br>

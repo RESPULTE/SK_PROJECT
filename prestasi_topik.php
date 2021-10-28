@@ -57,6 +57,20 @@
   background: white;
   color:  red;
 }
+#loll{
+  border: 3px solid blue; 
+  text-align: center; 
+  border-radius: 5px; 
+  background-color: dodgerblue; 
+  color: white;
+}
+tr{
+  border-radius: 8px; 
+  padding: 10px 10px; 
+  background-color: lightcyan; 
+  border: 3px solid dodgerblue;
+  font-size: 20;
+}
 </style>
 <?php
 require 'sambung.php';
@@ -75,11 +89,11 @@ $guru = $_SESSION['idpengguna'];
 <table width="70%" border="0" align="center" 
 style='font-size:16px'>
   <tr>
-    <td width="2%"><b>Bil.</b></td>
-    <td width="15%"><b>Subjek</b></td>
-    <td width="35%"><b>Topik</b></td>
-     <td width="8%"><b>Bil.jawab</b></td>
-     <td width="10%"><b>Laporan Lengkap</b></td>
+    <td id='loll' width="2%"><b>Bil.</b></td>
+    <td id='loll' width="15%"><b>Subjek</b></td>
+    <td id='loll' width="35%"><b>Topik</b></td>
+     <td id='loll' width="8%"><b>Bil.jawab</b></td>
+     <td id='loll' width="10%"><b>Laporan Lengkap</b></td>
   </tr> 
 <?php
 $no=1;

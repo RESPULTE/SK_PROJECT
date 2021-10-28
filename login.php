@@ -30,18 +30,17 @@
   color: white;
 }
 
-.info12 {
+.info1211 {
   border: 3px solid orange;
-  border-color: orange;
   background-color: lightyellow;
   color: orange;
 }
 
-.info12:hover {
+.info1211:hover {
   background: white;
   color: orange;
 }
-.info12:focus{
+.info1211:focus{
   background: white;
   color: orange;
 }
@@ -61,31 +60,29 @@ include 'header.php';
 	<tr>
 		<td align="center">
  <form action="proseslogin.php" method="post">
- <h2 id="tile">Nombor Kad Pengenalan</h2>
+ <h2 id="tile" style="margin-top: 10px; margin-bottom: 10px;">Nombor Kad Pengenalan</h2>
  <input 
  type="text" name="idpengguna" 
- placeholder="Tanpa tanda -" maxlength='10'size="25" class="btn info12"
+ placeholder="Tanpa tanda -" maxlength='12'size="25" class="btn info1211" 
  onkeypress='return event.charCode >= 48 && event.charCode <= 57' required autofocus />
 
 <script>
 function checkLength(el) {
-if (el.value.length != 10) {
+if (el.value.length != 12) {
 alert("Nombor KP mesti 12 digit")
 	}
 	}
 </script>
 
-<h2 id="tile">Katalaluan</h2>
-<input type="password" name="password" class="btn info12"
-placeholder="10 Digit" maxlength='10'size="10"
-onkeypress='return event.charCode >= 48 &&
-event.charCode <= 57' required>
+<h2 id="tile" style="margin-top: 10px; margin-bottom: 10px;">Katalaluan</h2>
+<input type="password" name="password" class="btn info1211"
+ maxlength='10'size="10" required>
 <br><br>
 <button type="submit" class="btn info" onblur="checkLength(this)" >Daftar Masuk</button>
 <button type="reset" class="btn info" onblur="checkLength(this)" >Reset</button>
 <br>
-<h5>*Jika belum mendaftar, <a href="daftar_baru.php">
-Daftar di sini</a></h5></br>
+<h3>*Jika belum mendaftar, <a href="daftar_baru.php">
+Daftar di sini</a></h3></br>
 </form>
 </td>
 </tr>

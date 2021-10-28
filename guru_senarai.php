@@ -6,6 +6,22 @@
   color: darkorange;
   width: 70%;
 }
+#loll{
+  border: 3px solid blue; 
+  text-align: center; 
+  border-radius: 5px; 
+  font-size: 20;
+  background-color: dodgerblue; 
+  color: white;
+}
+#tt{
+  border-radius: 8px; 
+  padding: 10px 10px; 
+  font-size: 20;
+  text-align: center;
+  background-color: lightcyan; 
+  font-size: 20;
+}
 .kill{
   color: white; 
   border: border: 3px solid red; 
@@ -33,12 +49,12 @@ include 'header.php';
 <main>	
 <table width="70%" border="0" align="center" style='font-size:16px'>
   <tr>
-    <td width="2%"><b>Bil.</b></td>
-    <td width="44%"><b>Nama Guru</b></td> 
-	<td width="5%"><b>Nom. KP</b></td>
-     <td width="7%"><b>Bil. Topik</b></td> 
-	 <td width="7%"><b>Bil. Soalan</b></td> 
-	 <td width="5%"><b>Tindakan</b></td>
+    <td id="loll" width="2%"><b>Bil.</b></td>
+    <td id="loll" width="44%"><b>Nama Guru</b></td> 
+	<td id="loll" width="5%"><b>Nom. KP</b></td>
+     <td id="loll" width="7%"><b>Bil. Topik</b></td> 
+	 <td id="loll" width="7%"><b>Bil. Soalan</b></td> 
+	 <td id="loll" width="5%"><b>Tindakan</b></td>
   </tr>
  <?php
 $no=1; 
@@ -51,12 +67,12 @@ while ($infol=mysqli_fetch_array($data1)){
   $infoSoalan=mysqli_fetch_array($soalan);
 ?>
   <tr>
-    <td><?php echo $no; ?></td>
-     <td><?php echo $infol['nama']; ?></td>
-     <td><?php echo $infol['idpengguna']; ?></td>
-     <td><?php echo $infoTopik['biltopik'] ?? ''; ?></td>
-     <td><?php echo $infoSoalan['bilsoalan'] ?? ''; ?></td>
-<td><a href="hapus_guru.php?idpengguna=<?php echo $infol['idpengguna'];?>" 
+    <td id="tt"><?php echo $no; ?></td>
+     <td id="tt"><?php echo $infol['nama']; ?></td>
+     <td id="tt"><?php echo $infol['idpengguna']; ?></td>
+     <td id="tt"><?php echo $infoTopik['biltopik'] ?? ''; ?></td>
+     <td id="tt"><?php echo $infoSoalan['bilsoalan'] ?? ''; ?></td>
+<td id="tt"><a href="hapus_guru.php?idpengguna=<?php echo $infol['idpengguna'];?>" 
 onclick="return confirm('AWAS!!, Semua rekod akan dihapuskan, Anda Pasti?')">
 <button class='kill'>Hapus</button></a></td>
   </tr>
