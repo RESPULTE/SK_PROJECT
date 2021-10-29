@@ -14,6 +14,21 @@
   font-size: 16px;
   cursor: pointer;
 }
+#loll{
+  border: 3px solid blue; 
+  text-align: center; 
+  border-radius: 5px; 
+  font-size: 20;
+  background-color: dodgerblue; 
+  color: white;
+}
+#tt11{
+  border-radius: 8px; 
+  font-size: 20;
+  text-align: center;
+  background-color: lightcyan; 
+  font-size: 20;
+}
 .b3tn {
   border: 3px solid black;
   border-radius: 5px;
@@ -96,10 +111,10 @@ $subjek = $res['subjek'];
 
 </tr>
 <tr>
-<td width="2%"><b>Bil.</b></td>
-<td width="40%"><b>Topik</b></td>
-<td width="14%"><b>Pengurusan Soalan</b></td>
-<td width="14%"><b>Pengurusan Topik</b></td>
+<td id="loll" width="2%"><b>Bil.</b></td>
+<td id="loll" width="40%"><b>Topik</b></td>
+<td id="loll" width="14%"><b>Pengurusan Soalan</b></td>
+<td id="loll" width="14%"><b>Pengurusan Topik</b></td>
 </tr>
 
 <?php
@@ -109,19 +124,17 @@ while ($info1=mysqli_fetch_array($data1))
 {
 ?>
 <tr>
-<td><?php echo $no; ?></td>
-<td><?php echo $info1['topik']; ?></td>
-<td><a href="soalan_baru1.php?idtopik=
-<?php echo $info1['idtopik'];?>"><button class="b3tn info">+MCQ
-</button></a>
-<a href="soalan_baru2.php?idtopik=
-<?php echo $info1['idtopik'];?>"><button class="b3tn info">+FIB
-</button></a>
-<a href="papar_soalan.php?idtopik=
-<?php echo $info1['idtopik'];?>"><button class="b3tn info2">Papar
-</button></a>
+<td id="tt11"><?php echo $no; ?></td>
+<td id="tt11"><?php echo $info1['topik']; ?></td>
+<td id="tt11">
+  <a href="soalan_baru1.php?idtopik=<?php echo $info1['idtopik'];?>">
+  <button class="b3tn info">+MCQ</button></a>
+<a href="soalan_baru2.php?idtopik=<?php echo $info1['idtopik'];?>">
+  <button class="b3tn info">+FIB</button></a>
+<a href="papar_soalan.php?idtopik=<?php echo $info1['idtopik'];?>">
+  <button class="b3tn info2">Papar</button></a>
 </td>
-<td>
+<td id="tt11">
 <a href="edit_topik.php?idtopik=
 <?php echo $info1['idtopik'];?>"><button class="b3tn info">Edit
 </button></a>

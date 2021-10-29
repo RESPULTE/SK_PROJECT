@@ -146,22 +146,22 @@ else{
   $topik_pilihan=$_GET['idtopik'];
 }
 //TABLE TOPIK 
-$dataTopik=mysqli_query($hubung,"SELECT * FROM topik WHERE idtopik=$topik_pilihan"); 
+$dataTopik=mysqli_query($hubung,"SELECT * FROM topik WHERE idtopik='$topik_pilihan'"); 
 $getTopik=mysqli_fetch_array($dataTopik);
 //TOTAL SOALAN
-  $query1 = "SELECT * FROM soalan WHERE idtopik=$topik_pilihan";
+  $query1 = "SELECT * FROM soalan WHERE idtopik='$topik_pilihan'";
   $results = mysqli_query($hubung,$query1); 
   $total=mysqli_num_rows($results);
 //TETAPKAN NOM SOALAN
-     $number = (int)$_GET['n'];
+  $number = $_GET['n'];
 // DAPATAN SOALAN
-$query2 = "SELECT * FROM soalan WHERE idtopik=$topik_pilihan"; 
+$query2 = "SELECT * FROM soalan WHERE idtopik='$topik_pilihan' AND nom_soalan='$number'"; 
 //PAPAR RESULAT
      $result = mysqli_query($hubung,$query2);
      $question = mysqli_fetch_assoc($result);
      
 // PILIHAN JAWAPAN
-$query3 = "SELECT * FROM pilihan WHERE nom_soalan=$number AND idsoalan=$question[idsoalan]";  
+$query3 = "SELECT * FROM pilihan WHERE nom_soalan='$number' AND idsoalan='$question[idsoalan]'";  
 //PAPARKAN
 $choices = mysqli_query($hubung,$query3); 
  ?>
@@ -200,7 +200,7 @@ if($number == 1){
 Soalan <?php echo $number; ?> dari <?php echo $total; ?> 
            <br><br>
 <p class="bt3n info111">
-  <?php echo $question['soalan'] ?? null; ?>
+  <?php echo $question['soalan']; ?>
 </p>
 <br>
 <?php
@@ -228,19 +228,17 @@ if ($question['gambarajah']==NULL){
 </li> 
 <?php endwhile; ?>
 </ul>
- <?php }elseif ($question['jenis']==2) { ?>
-<input class="bt3n info" type="text" name="idJAWAPAN" placeholder=
-"Taip Jawapan Di sini" size='70%'  required>
+ <?php }
+ elseif ($question['jenis']==2) { ?>
+  <input class="bt3n info" type="text" name="idJAWAPAN" placeholder=
+  "Taip Jawapan Di sini" size='70%'  required>
 <?php }?>
 <button type="submit" name="submit" class="bt3n info2" style="font-size: 20;">
   HANTAR
 </button>
-<input type="hidden" name="number" value="<?php echo 
-$number; ?>" />
-<input type="hidden" name="jenis_soalan" value="<?php echo
-$question['jenis']; ?>" />
-<input type="hidden" name="idsoalan" value="<?php echo 
-$question['idsoalan']; ?>">
+<input type="hidden" name="number" value="<?php echo $number; ?>" />
+<input type="hidden" name="jenis_soalan" value="<?php echo $question['jenis']; ?>" />
+<input type="hidden" name="idsoalan" value="<?php echo $question['idsoalan']; ?>">
 </form>
 </td></tr></table>
 <?php include 'footer.php';?> 

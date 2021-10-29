@@ -83,9 +83,9 @@ echo "<script>alert('Kemaskini rekod telah berjaya');   window.location='papar_t
 //DAPATKAN ID SAOALN
 $topikEdit = $_GET['idtopik'];
 //PILIH DATA BERDASARKAN PADA ID REKOD
-$pilihTopik = mysqli_query($hubung, "SELECT * FROM topik WHERE idtopik=$topikEdit");
+$pilihTopik = mysqli_query($hubung, "SELECT * FROM topik WHERE idtopik='$topikEdit'");
 while ($dataTopik = mysqli_fetch_array($pilihTopik)){
-$pilihSubjek=mysqli_query($hubung, "SELECT * FROM subjek WHERE idsubjek=$dataTopik[idsubjek]");
+$pilihSubjek=mysqli_query($hubung, "SELECT * FROM subjek WHERE idsubjek='$dataTopik[idsubjek]'");
 $dataSubjek=mysqli_fetch_array($pilihSubjek);
 //Paparkan nilai asal
 $idTOPIK = $topikEdit;

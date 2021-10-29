@@ -8,7 +8,22 @@
   transition: all 0.3s;
   cursor: pointer;
 }
-
+  #loll{
+  border: 3px solid blue; 
+  text-align: center; 
+  border-radius: 5px; 
+  font-size: 20;
+  background-color: dodgerblue; 
+  color: white;
+}
+#tt{
+  border-radius: 8px; 
+  padding: 10px 10px; 
+  font-size: 20;
+  text-align: center;
+  background-color: lightcyan; 
+  font-size: 20;
+}
 .pop{
   border-style: solid;
   border-color: orange;
@@ -52,9 +67,9 @@ include 'header.php';
 <table width="70%" border="0" align="center" 
 style='font-size:16px'>
   <tr>
-    <td width="2%"><b>Bil.</b></td>
-    <td width="50%"><b>Subjek</b></td>
-     <td width="18%"><b>Pengurusan Topik</b></td>
+    <td id="loll" width="2%"><b>Bil.</b></td>
+    <td id="loll" width="50%"><b>Subjek</b></td>
+     <td id="loll" width="18%"><b>Pengurusan Topik</b></td>
   </tr> 
 <?php
      $no=1;
@@ -63,9 +78,9 @@ style='font-size:16px'>
           {
 ?>
   <tr>
-   <td><?php echo $no; ?></td>
-   <td><?php echo $infol['subjek']; ?></td>
-   <td><a href="papar_topik.php?idsubjek=<?php echo $infol['idsubjek'];?>"><button class="b3tn info2" >PAPAR</button></a>
+   <td id="tt"><?php echo $no; ?></td>
+   <td id="tt"><?php echo $infol['subjek']; ?></td>
+   <td id="tt"><a href="papar_topik.php?idsubjek=<?php echo $infol['idsubjek'];?>"><button class="b3tn info2" >PAPAR</button></a>
   <a href="tambah_topik.php?idsubjek=<?php echo $infol['idsubjek'];?>"><button class="b3tn info" >CIPTA</button></a></td>
   </tr>
   <?php $no++; } ?>  

@@ -1,13 +1,31 @@
+<style>
+	  #loll{
+  border: 3px solid blue; 
+  text-align: center; 
+  border-radius: 5px; 
+  font-size: 20;
+  background-color: dodgerblue; 
+  color: white;
+}
+#tt{
+  border-radius: 8px; 
+  padding: 10px 10px; 
+  font-size: 20;
+  text-align: center;
+  background-color: lightcyan; 
+  font-size: 20;
+}
+</style>
 <?php require 'sambung.php'; ?>
 
 <hr>
 <table width="100%" border="0" align="center">
 	<tr style='font-size: 22px'>
-	<td width="5%"><b>Bil.</b></td>
-	<td width="20%"><b>Subjek</b></td>
-	<td width="50%"><b>Topik</b></td>
-	<td width="15%"><b>Format</b></td>
-	<td width="10%"><b>Bil</b></td>
+	<td id="loll" width="5%"><b>Bil.</b></td>
+	<td id="loll" width="20%"><b>Subjek</b></td>
+	<td id="loll" width="50%"><b>Topik</b></td>
+	<td id="loll" width="15%"><b>Format</b></td>
+	<td id="loll" width="10%"><b>Bil</b></td>
 </tr>
 <?php
 $no=1;
@@ -24,17 +42,17 @@ $infoSoalan=mysqli_fetch_array($soalan);
 ?>
 
 <tr style='font-size:18px'>
-<td><?php echo $no; ?></td>
-<td><?php echo $infoTopik['subjek']; ?></td>
-<td><?php echo $infoTopik['topik']; ?></td>
-<td><?php
+<td id="tt"><?php echo $no; ?></td>
+<td id="tt"><?php echo $infoTopik['subjek']; ?></td>
+<td id="tt"><?php echo $infoTopik['topik']; ?></td>
+<td id="tt"><?php
 if ($infoTopik['jenis']==1) {
 	echo "MCQ / TF";
 }else{
 	echo "FIB";
 } ?>
 </td>
-<td><?php echo $infoSoalan['bil']; ?></td>
+<td id="tt"><?php echo $infoSoalan['bil']; ?></td>
 </tr>
 <?php $no++; } ?>
 </table>

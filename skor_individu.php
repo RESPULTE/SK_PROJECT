@@ -79,7 +79,7 @@ $idpengguna=$_SESSION['idpengguna'];
 <head><?php include 'menu.php'; ?></head> 
 <center><h2 class="pop">REKOD MARKAH YANG DICAPAI</h2></center> 
   <main>
-<table width="70%" border="1" align="center" style="border-radius: 8px; padding: 10px 10px; background-color: lightcyan; border: 2px solid dodgerblue; font-size: 20;">
+<table width="70%" align="center" style="border-radius: 8px; padding: 10px 10px; background-color: lightcyan; border: 2px solid dodgerblue; font-size: 20;">
   <tr>
     <td style="border: 3px solid blue; text-align: center; border-radius: 5px; background-color: dodgerblue; color: white;" width="2%"><b>Bil.</b></td>
     <td style="border: 3px solid blue; text-align: center; border-radius: 5px; background-color: dodgerblue; color: white;" width="15%"><b>Subjek</b></td>

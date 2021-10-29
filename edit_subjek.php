@@ -98,7 +98,7 @@ $dataSubjek = mysqli_fetch_array($pilihSubjek);
 <form method="POST">
 <tr>
 <td align="right" style="color: darkorange; font-size:20;">NAMA SUBJEK:</td>
-<td><input class="b3tn info" type="text" name="subjek" size="4%" value="<?php echo $dataSubjek['subjek']; ?>"/></td>
+<td><input class="b3tn info" type="text" name="subjek" size="40%" value="<?php echo $dataSubjek['subjek']; ?>"/></td>
 </tr>
 <tr>
 <td></td>
