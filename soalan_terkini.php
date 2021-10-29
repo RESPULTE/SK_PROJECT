@@ -23,21 +23,28 @@
 	<tr style='font-size: 22px'>
 	<td id="loll" width="5%"><b>Bil.</b></td>
 	<td id="loll" width="20%"><b>Subjek</b></td>
-	<td id="loll" width="50%"><b>Topik</b></td>
-	<td id="loll" width="15%"><b>Format</b></td>
-	<td id="loll" width="10%"><b>Bil</b></td>
+	<td id="loll" width="40%"><b>Topik</b></td>
+	<td id="loll" width="10%"><b>Bil Soalan</b></td>
+  <td id="loll" width="20%"><b>Guru</b></td>
+
 </tr>
 <?php
 $no=1;
-$topik=mysqli_query($hubung, "SELECT * FROM subjek AS s
-INNER JOIN topik AS t ON (s.idsubjek = t.idsubjek)
-INNER JOIN soalan AS soal ON (t.idtopik = soal.idtopik)
-GROUP BY t.topik ORDER BY t.idtopik desc limit 0,10 ");
+$topik=mysqli_query($hubung, "SELECT * FROM topik 
+      LEFT JOIN subjek ON 
+          subjek.idsubjek = topik.idsubjek
+      LEFT JOIN soalan ON 
+          topik.idtopik = soalan.idtopik 
+      LEFT JOIN pengguna ON
+          topik.idpengguna = pengguna.idpengguna
+GROUP BY topik.topik ORDER BY topik.idtopik desc limit 0,10 ");
 
 while ($infoTopik=mysqli_fetch_array($topik)){
-$soalan=mysqli_query($hubung, "SELECT COUNT(idtopik) AS
-'bil' FROM soalan WHERE idtopik='$infoTopik[idtopik]' AND
-jenis='$infoTopik[jenis]'");
+
+$soalan=mysqli_query($hubung, "
+  SELECT COUNT(idtopik) AS 'bil' FROM soalan 
+  WHERE idtopik='$infoTopik[idtopik]' AND jenis='$infoTopik[jenis]'");
+
 $infoSoalan=mysqli_fetch_array($soalan);
 ?>
 
@@ -45,19 +52,16 @@ $infoSoalan=mysqli_fetch_array($soalan);
 <td id="tt"><?php echo $no; ?></td>
 <td id="tt"><?php echo $infoTopik['subjek']; ?></td>
 <td id="tt"><?php echo $infoTopik['topik']; ?></td>
-<td id="tt"><?php
-if ($infoTopik['jenis']==1) {
-	echo "MCQ / TF";
-}else{
-	echo "FIB";
-} ?>
+<td id="tt"><?php echo $infoSoalan['bil']; ?>
 </td>
-<td id="tt"><?php echo $infoSoalan['bil']; ?></td>
+<td id="tt"><?php echo $infoTopik['nama']; ?></td>
 </tr>
 <?php $no++; } ?>
 </table>
 <br>
-<center><font style='font-size:14px'>
+<center>
+<br>
+<font style='font-size:17px; color: darkorange;'>
 * Rekod yang dipaparkan adalah 10 yang terkini sahaja
 *<br/>Jumlah Rekod:<?php echo $no-1; ?>
 </font>

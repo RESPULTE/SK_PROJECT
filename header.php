@@ -4,7 +4,12 @@
   border-color: brown;
   background-color: lightyellow;
   color: darkorange;
-  width: 80%;
+  z-index: 10;
+  position: absolute;
+  align-self: center;
+  top: 80px;
+  left: 350px;
+  width: 50%;
 }
 
 </style>
@@ -16,19 +21,13 @@
 
 <body>
 <center>
-<TABLE WIDTH="70%" BORDER="0" cellpadding="0" CELLSPACING="0">
-<TR>
-<TD WIDTH="70%" HEIGHT="200" BACKGROUND="header1.jpg" valign="center" style="background-repeat:no-repeat; border: 5px solid orange;" >
 
-<center>
+<img src="school.jpg" width="80%" height="400" style="border: 8px solid darkred; border-radius: 5px; z-index: -10; position: relative;">
 <div class="popheader">
-	<FONT SIZE="+3" COLOR="orange" font face="Arial"><?php echo $nama_sistem; ?></FONT>
+  <FONT SIZE="+3" COLOR="orange" font face="Arial"><?php echo $nama_sistem; ?></FONT>
 <br>
 <FONT SIZE="+1" COLOR="blue" font face="Arial"><?php echo $motto1;?></FONT></TD>
 </div>
-</center>
-</p>
-</TR></TABLE>
 </body></center>
   
 </div>

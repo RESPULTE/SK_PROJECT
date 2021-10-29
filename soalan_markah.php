@@ -90,6 +90,7 @@ mysqli_query($hubung,$query) or die("<br />".$query);
           <td>
 <p class="warsn">Tahniah! Anda telah selesai menjawab semua soalan</p>
 <center> 
+
 <p style="font-size: 30; margin-bottom: 10px;">Bilangan Betul: <?php echo $_SESSION['score']; ?></p>
 </center>
          </td>
@@ -97,17 +98,19 @@ mysqli_query($hubung,$query) or die("<br />".$query);
      <tr>
 <td>
 <center>
-<button style="margin-left: 8px;" class="bt3n info" onclick="window.location.href='soalan_papar.php?&idtopik=<?php echo $_SESSION['idtopik']?>&n=1'">Cuba Lagi</button>
+    <br>
+<button  class="bt3n info" style=' margin-left: 8px; border: 3px solid dodgerblue; border-radius: 3px;' onclick="window.location.href='soalan_papar.php?&idtopik=<?php echo $_SESSION['idtopik']?>&n=1'">Cuba Lagi</button>
 
-<button style="margin-left: 8px;" class="bt3n info" onclick="window.location.href='index2.php'">Tamat</button>
+<button  class="bt3n info" style='margin-left: 8px; border: 3px solid dodgerblue; border-radius: 3px;' onclick="window.location.href='index2.php'">Tamat</button>
 
-<button style="margin-left: 8px;" class="bt3n info" onclick="window.location.href='skor_individu.php'">Prestasi</button>
+<button  class="bt3n info" style='margin-left: 8px; border: 3px solid dodgerblue; border-radius: 3px;' onclick="window.location.href='skor_individu.php'">Prestasi</button>
 
 <?php $_SESSION['score']=0; ?>
           </td>
      </tr>
 </table>
 </center>
+<br>
 <?php include 'footer.php';?>
 </body>
 </html>

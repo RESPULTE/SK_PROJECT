@@ -9,7 +9,22 @@
   font-size: 16px;
   cursor: pointer;
 }
-
+  #loll{
+  border: 3px solid blue; 
+  text-align: center; 
+  border-radius: 5px; 
+  font-size: 20;
+  background-color: dodgerblue; 
+  color: white;
+}
+#tt{
+  border-radius: 8px; 
+  padding: 10px 10px; 
+  font-size: 20;
+  text-align: center;
+  background-color: lightcyan; 
+  font-size: 20;
+}
 .b3tn {
   border: 3px solid black;
   border-radius: 5px;
@@ -67,8 +82,8 @@ include 'header.php';
 <table width="70%" border= "0" align="center">
   <tr>
      <td>
-<label>Kemudahan untuk daftar nama pelajar secara berke-lompok</label><br>
-<label>Pilih lokasi fail CSV/Excel:</label>
+<label style="font-size: 20; color: dodgerblue;">Kemudahan untuk daftar nama pelajar secara berkelompok</label><br>
+<label style="font-size: 20; color: dodgerblue;">Pilih lokasi fail CSV/Excel:</label>
 
 <!-- PANGGIL FAIL IMPORT CSV-->
 <form action="import_csv.php" method="post" name="upload_excel" enctype="multipart/form-data">
@@ -85,15 +100,18 @@ include 'header.php';
 <button type="submit" id="submit" name="import" class="b3tn info2">Upload</button>
  </center> 
  </form>
-*Cipta fail dalam Ms Excell dan save as csv mengikut
+ <p style="font-size: 20; color: darkorange;">
+   *Cipta fail dalam Ms Excell dan save as csv mengikut
 aturan lajur seperti di bawah: 
+ </p>
+
  <br><br>
- <table width="70%" border="1" align="center" >
+ <table width="70%" align="center" >
  <tr>
- <td>111213031234</td>
- <td>1234</td>
- <td>SITI NORHALIZA BINTI SAMAD</td>
- <td>PEREMPUAN</td> 
+ <td id="tt" style="font-size: 15; border: 3px solid dodgerblue;">111213031234</td>
+ <td id="tt" style="font-size: 15; border: 3px solid dodgerblue;">1234</td>
+ <td id="tt" style="font-size: 15; border: 3px solid dodgerblue;">SITI NORHALIZA BINTI SAMAD</td>
+ <td id="tt" style="font-size: 15; border: 3px solid dodgerblue;">PEREMPUAN</td> 
  </tr>
  </table>
           </td>

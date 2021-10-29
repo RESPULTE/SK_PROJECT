@@ -7,6 +7,22 @@
   color: darkorange;
   width: 70%;
 }
+#loll{
+  border: 3px solid blue; 
+  text-align: center; 
+  border-radius: 5px; 
+  font-size: 20;
+  background-color: dodgerblue; 
+  color: white;
+}
+#tt{
+  border-radius: 8px; 
+  padding: 10px 10px; 
+  font-size: 20;
+  text-align: center;
+  background-color: lightcyan; 
+  font-size: 20;
+}
 .btn {
   border: 3px solid black;
   border-radius: 5px;
@@ -40,7 +56,11 @@
   background-color: lightcyan;
   color: dodgerblue
 }
-
+.info09 {
+  font-size: 20;
+  border-color: forestgreen;
+  color: darkgrey;
+}
 .info:hover {
   background: #2196F3;
   color: white;
@@ -73,9 +93,9 @@ include 'header.php';
 <table width="70%" border="0" align="center" 
 style='font-size:20px'>
   <tr>
-    <td width="2%"><b>Bil.</b></td>
-    <td width="50%"><b>Subjek</b></td>
-    <td width="8%"><b>Tindakan</b></td>
+    <td id="loll" width="2%"><b>Bil.</b></td>
+    <td id="loll" width="50%"><b>Subjek</b></td>
+    <td id="loll" width="8%"><b>Tindakan</b></td>
   </tr> 
  <?php
      $no=1;
@@ -87,17 +107,19 @@ $dataBil=mysqli_query($hubung,"SELECT COUNT(idsubjek) AS
 $getBil=mysqli_fetch_array($dataBil);
           ?>
   <tr>
-    <td><?php echo $no; ?></td>
-    <td><?php echo $infol['subjek']; ?></td>
-    <td><?php if($getBil['bil']==0){
-     }else{ ?>
+    <td id="tt"><?php echo $no; ?></td>
+    <td id="tt"><?php echo $infol['subjek']; ?></td>
+    <td id="tt"><?php if($getBil['bil']==0){?>
+      <button class="b3tn info09"  disabled>PILIH</button>
+     <?php }else{ ?>
      <a href="kuiz_topik.php?idsubjek=
      <?php echo $infol['idsubjek'];?>"><button class="b3tn info2">PILIH 
 </button></a>
      <?php } ?></td></tr>
   <?php $no++; } ?>
 </table></main>
-<center><font style='font-size:14px'>* Senarai Tamat
+<br>
+<center><font style='font-size:18px'>* Senarai Tamat
 *<br />Jumlah Rekod:<?php echo $no-1; ?></font></center>
 </body>
 </html>	

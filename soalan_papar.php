@@ -24,7 +24,9 @@
   cursor: pointer;
 }
 .info2 {
-  border-color: forestgreen;
+  border: 4px solid darkgreen;
+  transition: all 0.3s;
+  border-radius: 3px;
   background-color: lightgreen;
   color: darkgreen;
 }
@@ -175,41 +177,46 @@ $choices = mysqli_query($hubung,$query3);
 <tr>
 <td> 
 <hr> 
+<p style="font-size: 20; margin-top: 5px; color: dodgerblue;">
 <?php
-
-//RESPON JAWAPAN BETUL ATAU TIDAK
+//RESPON TAS JAWAPAN BETUL ATAU TIDAK
 if($number == 1){
-  echo"Sila baca soalan dengan teliti";
+echo"Sila baca soalan dengan teliti";
 }else{
-  $jawapan=$_GET['semakan'];
-
+$jawapan=$_GET['semakan'];
   if($jawapan=="TEPAT"){
-    echo "Tahniah, jawapan bagi soalan ";
-    echo $number-1;
-    echo " adalah <font color='blue' size='+3'>TEPAT</font>";
+  echo "Tahniah, jawapan bagi soalan ";
+  echo $number-1;
+  echo " adalah <font color='blue' size='+3'>TEPAT</font>";
   }else{
-    echo "Maaf, jawapan bagi soalan ";
-    echo $number-1;
-    echo " adalah <font color='red' size='+3'>SALAH</font>"; 
+  echo "Maaf, jawapan bagi soalan ";
+  echo $number-1;
+  echo " adalah <font color='red' size='+3'>SALAH</font>";
   }
 }
 ?>
+</p>
 </td></tr>
 <tr><td>
 <hr>
-Soalan <?php echo $number; ?> dari <?php echo $total; ?> 
+<p style="font-size: 20; color: darkorange; margin-bottom: -30px;">Soalan <?php echo $number; ?> dari <?php echo $total; ?></p> 
            <br><br>
 <p class="bt3n info111">
   <?php echo $question['soalan']; ?>
 </p>
 <br>
+
+<p style="font-size: 20; color: grey;">
 <?php
-if ($question['gambarajah']==NULL){
-  echo '[ TIADA GAMBAR ]';
-}else{
-  echo "<img src='gambar/".$question['gambarajah']."'width='30%' height='30%'/>";
+if ($question['gambarajah'] != null){
+  echo "<img src='gambar/".$question['gambarajah']."'width='10%' height='30%'/>";
+}
+else {
+  echo '[TIADA GAMBAR]';
 }
 ?>
+</p>
+
 <br>
 </p>
 <form method="post" action="soalan_semak.php"> 
@@ -220,7 +227,7 @@ if ($question['gambarajah']==NULL){
 <?php if($row['pilihan_jawapan'] != null){ ?>
 <label class="container">
   <input name="choice" type="radio" value="<?php echo $row['idpilihan']; ?>" required checked="checked"/>
-  <p class="pop"><?php echo $row['pilihan_jawapan'] ?? null;?></p>
+  <p class="pop" style="text-indent: 5px"><?php echo $row['pilihan_jawapan'] ?? null;?></p>
   <span class="checkmark">
   </span>
 </label>
@@ -231,8 +238,10 @@ if ($question['gambarajah']==NULL){
  <?php }
  elseif ($question['jenis']==2) { ?>
   <input class="bt3n info" type="text" name="idJAWAPAN" placeholder=
-  "Taip Jawapan Di sini" size='70%'  required>
+  "Taip Jawapan Di sini" size='70%' style="border: 3px solid dodgerblue; border-radius: 3px;" required>
 <?php }?>
+<br>
+<br>
 <button type="submit" name="submit" class="bt3n info2" style="font-size: 20;">
   HANTAR
 </button>

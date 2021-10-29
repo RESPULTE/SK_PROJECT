@@ -52,8 +52,8 @@ $nokp = $_SESSION['idpengguna'];
 <tr>
 <td>
 <center>
-<h3><b>* SELAMAT DATANG *</b></h3>
-<p>
+<h3 style="font-size: 25; color: dodgerblue; margin-bottom: -10px;"><b>* SELAMAT DATANG *</b></h3>
+<p style="font-size: 20; color: darkorange;">
 <?php
 //Papar maklumat lengkap pengguna login
 $dataA=mysqli_query($hubung, "SELECT * FROM pengguna WHERE idpengguna='$nokp'");

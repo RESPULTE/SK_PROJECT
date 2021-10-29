@@ -7,7 +7,13 @@
   transition: all 0.3s;
   cursor: pointer;
 }
-
+.pop{
+  border-style: solid;
+  border-color: orange;
+  background-color: lightyellow;
+  color: darkorange;
+  width: 70%;
+}
 .info2 {
   padding: 0px 4px;
   text-align: center;
@@ -40,13 +46,7 @@
   background: orange;
   color: white;
 }
-.pop{
-  border-style: solid;
-  border-color: orange;
-  background-color: lightyellow;
-  color: darkorange;
-  width: 70%;
-}
+
 input[type="file"] {
     display: none;
 }
@@ -97,11 +97,11 @@ function add_row()
 <body>
 <form method="post" enctype="multipart/form-data" action="soalan_proses.php">
 <p>
-<label>Bilangan Soalan</label>
-<input size='2%' type="text" value="<?php echo $next; ?>" name="nom_soalan" readonly />
+<label style="font-size: 20; color: dodgerblue;">Bilangan Soalan</label>
+<input size='1%' style="font-size: 20; color: dodgerblue;" type="text" value="<?php echo $next; ?>" name="nom_soalan" readonly />
 </p>
 <p>
-<label>Soalan:</label><br>
+<label style="font-size: 40; color: darkorange;">Soalan:</label><br>
 <textarea id="paparan_soalan" name="paparan_soalan" rows="7" cols="105" class="bt4n info"  required></textarea> 
 </p>
 <br>
@@ -115,8 +115,8 @@ function add_row()
 </p>
 <br>
 <br>
-<label>Cadangan Jawapan:</label><br>
-<small>*Boleh tambah jawapan yang mungkin</small>
+<label style="font-size: 20; color: dodgerblue;">Cadangan Jawapan:</label><br>
+<small style="font-size: 20; color: dodgerblue;">*Boleh tambah jawapan yang mungkin</small>
 </span><br>
 <table id="jawapan" align=left width ='30%' border=0>
 <tr id="rowl">
@@ -128,7 +128,7 @@ function add_row()
   <br>
   <table width='100%' border=0>
   <tr><td>
-  <fieldset><legend>MENU</legend><center>
+  <fieldset><legend style="font-size: 20; color: dodgerblue;">MENU</legend><center>
 <input class="bt4n info2" type="bt4n" onclick="add_row();" value="TAMBAH JAWAPAN">
 <input class="bt4n info" type="submit" name="submit" value="CIPTA">
 <button class="bt4n warn" onclick="window.location.href='soalan_baru1.php?idtopik=<?php echo $idTopik;?>'">+MCQ</button>

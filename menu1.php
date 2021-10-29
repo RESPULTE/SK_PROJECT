@@ -10,7 +10,16 @@
   cursor: pointer;
 }
 
-
+.btn11 {
+  border: 3px solid black;
+  border-radius: 5px;
+  color: black;
+  margin: 5px;
+  transition: all 0.3s;
+  padding: 20px 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
 /* Blue */
 .info {
   border-color: #2196F3;
@@ -26,8 +35,8 @@
 </style>
 <center>
 <p>
-<a href="index.php"><button class="btn info">Home</button></a>
-<a href="login.php"><button class="btn info">Daftar Masuk</button></a>
-<a href="daftar_baru.php"><button class="btn info">Daftar Baru</button></a>
+<a href="index.php"><button class="btn11 info">Home</button></a>
+<a href="login.php"><button class="btn11 info">Daftar Masuk</button></a>
+<a href="daftar_baru.php"><button class="btn11 info">Daftar Baru</button></a>
 </p>
 </center>

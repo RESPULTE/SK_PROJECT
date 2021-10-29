@@ -116,7 +116,7 @@ if (isset($_POST['submit'])){
   </script>";
   //MASUK JAWAPAN
   if($insert_row){
-    $num = 1;
+    $num = 0;
     foreach($pilihan as $pilihan_jawapan => $pilih){ 
       $num++;
       if($pilih != ''){
@@ -151,8 +151,8 @@ $next=$total+1;
      <td>
 <form method="post" enctype="multipart/form-data">
 <p>
-<label>Bilangan Soalan</label>
-<input type="text" value="<?php echo $next; ?>" name="nom_soalan" size="5" readonly />
+<label style="font-size: 20; margin-top: 5px; color: dodgerblue;">Bilangan Soalan</label>
+<input style="font-size: 20; margin-top: 5px; color: dodgerblue;" type="text" value="<?php echo $next; ?>" name="nom_soalan" size="5" readonly />
 </p>
 <br> 
 <label class="warn1" style="font-size: 40; background-color: white;">Soalan</label>

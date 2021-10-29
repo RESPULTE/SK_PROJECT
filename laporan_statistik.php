@@ -80,8 +80,10 @@ require 'keselamatan.php';
  </tr>
  <tr>
     <td>
-	
-<p class="pop11"><strong>LAPORAN: BILANGAN SOALAN MENGIKUT TOPIK BAGI SEMUA SUBJEK</strong></p>
+<center>
+  <p class="pop11" align="center"><strong>LAPORAN: BILANGAN SOALAN MENGIKUT TOPIK BAGI SEMUA SUBJEK</strong></p>
+</center>
+
 
 <table width="800" border="0" align="center"></td> 
   </tr>

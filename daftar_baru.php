@@ -54,6 +54,8 @@
 require 'sambung.php';
 //PERLUKAN FAIL INI
 include 'header.php';
+
+
 //POST VALUE
 if (isset($_POST['idpengguna'])) {
 //pembolehubah untuk memegang data yang dihantar

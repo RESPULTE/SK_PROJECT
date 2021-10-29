@@ -92,7 +92,7 @@ $next=$total+1;
         <form method="post">
 <tr>
 <td align="right" style="color:orange; font-size:20;">BIL:</td>
-<td style="font-size:25;"><?php echo $next; ?></td>
+<td style="color:dodgerblue; font-size:25;"><?php echo $next; ?></td>
 </tr>
 <tr><td align="right" style="color:orange; font-size:20;">NAMA SUBJEK:</td>
 <td>	

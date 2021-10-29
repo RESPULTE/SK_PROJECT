@@ -7,6 +7,22 @@
   color: darkorange;
   width: 70%;
 }
+  #loll{
+  border: 3px solid blue; 
+  text-align: center; 
+  border-radius: 5px; 
+  font-size: 20;
+  background-color: dodgerblue; 
+  color: white;
+}
+#tt{
+  border-radius: 8px; 
+  padding: 10px 10px; 
+  font-size: 20;
+  text-align: center;
+  background-color: lightcyan; 
+  font-size: 20;
+}
 .btn {
   border: 3px solid black;
   border-radius: 5px;
@@ -78,15 +94,16 @@ $paparsubjek = $res['subjek'];
 <html>
 <head><?php include 'menu.php'; ?></head>
 <body>
-<center><h2 class="pop">SENARAI TOPIK UNTUK SUBJEK <?php echo 
+<center><h2 class="pop" style="margin-top: 50px;">SENARAI TOPIK UNTUK SUBJEK <?php echo 
 $paparsubjek; ?></h2></center>
+
 <main>
 <table width="70%" border="0" align="center" style='font-size:20px'>
   <tr>
-    <td width="2%"><b>Bil.</b></td>
-    <td width="50%"><b>Topik</b></td>
-    <td width="8%"><b>Format</b></td>
-    <td width="10%"><b>Tindakan</b></td>
+    <td id="loll" width="2%"><b>Bil.</b></td>
+    <td id="loll" width="50%"><b>Topik</b></td>
+    <td id="loll" width="8%"><b>Format</b></td>
+    <td id="loll" width="10%"><b>Tindakan</b></td>
   </tr> 
  <?php 
   $no=1;
@@ -99,23 +116,24 @@ while($info1=mysqli_fetch_array($data1))
          {
          ?>
  <tr>
-    <td><?php echo $no; ?></td>
-    <td><?php echo $info1['topik']; ?></td>
-    <td><?php
+    <td id="tt"><?php echo $no; ?></td>
+    <td id="tt"><?php echo $info1['topik']; ?></td>
+    <td id="tt"><?php
     if($info1['jenis']==1){
     echo "MCQ/TF";
     }else{
          echo"FIB";
 	}
     ?></td>
-    <td>
+    <td id="tt">
 <a href="soalan_mula.php?idtopik=<?php echo $info1['idtopik'];?>
 &jenis=<?php echo $info1['jenis'];?>"> 
 <button class="b3tn info2">Buka</button></a></td></tr>
 <?php $no++; } ?>
 </table>
       </main>
-<center><font style='font-size:14px'>* Senarai Tamat 
+    <br>
+<center><font style='font-size:17px; color: dodgerblue;'>* Senarai Tamat 
 *<br />Jumlah Rekod:<?php echo $no-1; ?></font></center> 
   </body>
 </html>

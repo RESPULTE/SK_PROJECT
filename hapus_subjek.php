@@ -43,5 +43,5 @@ $delSoal->execute();
 #}
 
  //Papar mesej jika berjaya hapus
-echo "<script>alert(".$delSoal->num_rows."); window.location='subjek_senarai.php'</script>";
+echo "<script>alert('Hapus Subjek Berjaya!'); window.location='subjek_senarai.php'</script>";
 ?>

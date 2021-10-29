@@ -25,7 +25,8 @@
 }
 .info2 {
   transition: all 0.3s;
-  border-color: forestgreen;
+  border: 3px solid darkgreen;
+  border-radius: 3px;
   background-color: lightgreen;
   color: darkgreen;
 }
@@ -33,6 +34,7 @@
   background: forestgreen;
   color: white;
 }
+
 /* Blue */
 .info {
   font-size: 20;
@@ -181,6 +183,7 @@ $choices = mysqli_query($hubung,$query);
 <tr> 
 <td> 
 <hr> 
+<p style="font-size: 20; margin-top: 5px; color: dodgerblue;">
 <?php
 //RESPON TAS JAWAPAN BETUL ATAU TIDAK
 if($number == 1){
@@ -198,26 +201,29 @@ $jawapan=$_GET['semakan'];
   }
 }
 ?>
+</p>
           </td>
      </tr>
       <tr>
           <td>
 <hr>
-Soalan <?php echo $number; ?> dari <?php echo $total; ?> 
+<p style="font-size: 20; color: darkorange; margin-bottom: -30px;">Soalan <?php echo $number; ?> dari <?php echo $total; ?></p> 
 <br><br>
 <p class="bt3n info122">
   <?php echo $question['soalan'] ?? null; ?>
 </p>
 
 <br> 
+<p style="font-size: 20; color: grey;">
 <?php
 if ($question['gambarajah'] != null){
   echo "<img src='gambar/".$question['gambarajah']."'width='10%' height='30%'/>";
 }
 else {
-  echo '[tiada img]';
+  echo '[tiada gambar]';
 }
 ?>
+</p>
 </P>
 <form method="post" action="soalan_semak.php">
 <?php

@@ -99,16 +99,16 @@ $getSubjek=mysqli_fetch_array($dataSubjek);
       </center>
  <main>
 <center>
-  <table width="70%" border="1" style="border-radius: 8px; padding: 10px 10px; background-color: lightcyan; border: 3px solid dodgerblue;" align="center">
+  <table width="70%" style="border-radius: 8px; padding: 10px 10px; background-color: lightcyan; border: 3px solid dodgerblue;" align="center">
 
      <tr>
-     <td><h3 style="font-size:20; color: darkblue; margin-bottom: 2px;">Arahan kepada pelajar:</h3></td>
+     <td><h3 style="font-size:20; color: darkblue; margin-bottom: 2px; background-color: lightcyan;">Arahan kepada pelajar:</h3></td>
      </tr>
      <tr>
-<td style="font-size:20; color: darkblue; margin-bottom: 2px;">Jawapan semua soalan. Pilih jawapan yang terbaik.</td>
+<td style="font-size:20; color: darkblue; margin-bottom: 2px; background-color: lightcyan;">Jawapan semua soalan. Pilih jawapan yang terbaik.</td>
      </tr>
 <tr> 
-<td style="font-size:20; color: darkblue; margin-bottom: 2px;"> 
+<td style="font-size:20; color: darkblue; margin-bottom: 2px; background-color: lightcyan;"> 
 <ul > 
 <li>Jumlah soalan: <strong><?php echo $total; ?>
 </strong></li>
@@ -128,6 +128,7 @@ minit</strong></li>
 </center>
 
 </main>
+<br>
 <?php include 'footer.php';?>
   </body>
 </html>
