@@ -216,7 +216,7 @@ $jawapan=$_GET['semakan'];
 <br> 
 <p style="font-size: 20; color: grey;">
 <?php
-if ($question['gambarajah'] != null){
+if (isset($question['gambarajah'])){
   echo "<img src='gambar/".$question['gambarajah']."'width='10%' height='30%'/>";
 }
 else {
@@ -264,11 +264,13 @@ if (isset($question['soalan'])){
 <button type="submit" name="submit" class="bt3n info2" style="font-size: 20;">
   HANTAR
 </button>
-<?php
-} else{
-  echo 'tiada soalan';
+<p style="font-size: 20; color: red;">
+<?php } else{
+echo '[ TIADA SOALAN :( ]';
 }
 ?>
+</p>
+
 <input type="hidden" name="number" value="<?php echo $number; ?>" />
 <input type="hidden" name="jenis_soalan" value="<?php echo $question['jenis']; ?>" />
 <input type="hidden" name="idsoalan" value="<?php echo $question['idsoalan']; ?>" />

@@ -17,22 +17,24 @@ $delete_q=mysqli_query($hubung, "
 $infoDel=mysqli_fetch_array($delete_q);
 
 //HAPUS TOPIK
-$hapuskanl = mysqli_query($hubung,"DELETE FROM topik 
-    WHERE idpengguna='$delguru'");
+mysqli_query($hubung,"DELETE FROM topik WHERE idpengguna='$delguru'");
+
 //HAPUS PENGGUNA
-$hapuskan2 = mysqli_query($hubung,"DELETE FROM pengguna 
-    WHERE idpengguna='$delguru'");
-//HAPUS SOALAN
-$hapuskan3 = mysqli_query($hubung,"DELETE FROM soalan 
-    WHERE idtopik='$infoDel[idtopik]'"); 
-//HAPUS JAWAPAN
-$hapuskan4 = mysqli_query($hubung,"DELETE FROM pilihan 
-    WHERE idsoalan='$infoDel[idsoalan]'");
+mysqli_query($hubung,"DELETE FROM pengguna WHERE idpengguna='$delguru'");
+
 //HAPUS PEREKODAN
-$hapuskan5 = mysqli_query($hubung,"DELETE FROM perekodan 
-    WHERE idpengguna='$delguru'");
+mysqli_query($hubung,"DELETE FROM perekodan WHERE idpengguna='$delguru'");
+
+//HAPUS JAWAPAN
+if (isset($infoDel['idtopik'])){
+    mysqli_query($hubung,"DELETE FROM soalan WHERE idtopik='$infoDel[idtopik]'"); 
+}
+ //HAPUS SOALAN
+if (isset($infoDel['idsoalan'])){
+    mysqli_query($hubung,"DELETE FROM pilihan WHERE idsoalan='$infoDel[idsoalan]'");
+}
 
  //Papar mesej jika berjaya hapus
- echo "<script>alert(".empty($infoDel)."); window.location='guru_senarai.php'</script>";
+ echo "<script>alert('hapus guru berjaya!'); window.location='guru_senarai.php'</script>";
 ?>
 

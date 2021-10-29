@@ -88,9 +88,9 @@ include 'header.php';
 <table width="70%" border="0" align="center" 
 style='font-size:16px'>
   <tr> 
-    <td id="loll" width="2%"><b>Bil.</b></td>
-    <td id="loll" width="58%"><b>Nama Subjek</b></td>
-     <td id="loll" width="10%"><b>Tindakan</b></td>
+    <td id="loll" width="5%"><b>Bil.</b></td>
+    <td id="loll" width="40%"><b>Nama Subjek</b></td>
+     <td id="loll" width="20%"><b>Tindakan</b></td>
   </tr> 
  <?php 
 $no=1;
