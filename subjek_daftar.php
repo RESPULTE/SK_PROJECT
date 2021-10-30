@@ -1,5 +1,5 @@
 <style>
-.b3tn {
+.b3tn11 {
   border: 3px solid;
   border-radius: 5px;
   margin: 3px;
@@ -69,7 +69,7 @@ include 'header.php';
 <?php
 if (isset($_POST['submit'])){
   $subjek_baru = $_POST['subjek']; 
-  $query="INSERT INTO subjek (subjek) values('$subjek_baru')"; 
+  $query       ="INSERT INTO subjek (subjek) values('$subjek_baru')"; 
   $insert_row=mysqli_query($hubung,$query);
   echo "<script>alert('Subjek baru telah ditambah'); 
   window.location='subjek_senarai.php'</script>";
@@ -86,21 +86,21 @@ $next=$total+1;
   <body>
 <center><h2 class="pop">DAFTAR SUBJEK</h2></center>
       <main>
-<table width="70%" border="0" align="center">
+<table width="70%" border="0" align="center" style="border: 5px solid indianred; background-color: lightgoldenrodyellow; padding: 10px 10px; border-radius: 8px; width: 50%; padding-bottom: 25px;">
   <tr>
      <td>
         <form method="post">
 <tr>
-<td align="right" style="color:orange; font-size:20;">BIL:</td>
+<td align="right" style=" font-size:20;">BIL:</td>
 <td style="color:dodgerblue; font-size:25;"><?php echo $next; ?></td>
 </tr>
-<tr><td align="right" style="color:orange; font-size:20;">NAMA SUBJEK:</td>
+<tr><td align="right" style=" font-size:20;">NAMA SUBJEK:</td>
 <td>	
-<input type="text" class="b3tn info" name="subjek" s1ze="40%" required />
+<input type="text" class="b3tn11 info" name="subjek" s1ze="40%" required />
 </td></tr>	
 <tr>
 <td></td>
-<td><input class="b3tn info" type="submit" name="submit" value="DAFTAR" /> 
+<td><input class="b3tn11 info" type="submit" name="submit" value="DAFTAR" /> 
 </td>
 </tr>
 </form>

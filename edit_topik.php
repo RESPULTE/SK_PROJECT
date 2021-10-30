@@ -99,24 +99,26 @@ $editMARKAH= $dataTopik['markah'];
   <body>
 <center><h2 class="pop">KEMASKINI TOPIK</h2></center>
 <main>
-<table width="70%" border="0" align="center" style='font-size:18px'>
+<table width="70%" border="0" align="center" style='font-size:18px; border: 5px solid indianred; background-color: lightgoldenrodyellow; padding: 10px 10px; border-radius: 8px; width: 50%; padding-bottom: 10px;'>
   <tr>
      <td>
 <form method="post">
 <table border="0">
-<tr>
-<td name="center" style="color: darkorange; font-size: 20;">Subjek :</td>
-<td><select name="idsubjek" class="b3tn info" style="font-size: 20;" required>
-<option selected value="<?php echo $dataSubjek['idsubjek']; ?>">
-<?php echo $dataSubjek['subjek'] ?? null; ?>
-</option>
-<?php $data2=mysqli_query($hubung,"SELECT * FROM subjek "); 
-while ($info2=mysqli_fetch_array($data2)){
-  echo "<option value='$info2[idsubjek]'> $info2[subjek] </option>";
-     } 
-?>
-</select></td>
-</tr>
+  <tr>
+    <td name="center" style="color: darkorange; font-size: 20;">Subjek :</td>
+    <td>
+      <select name="idsubjek" class="b3tn info" style="font-size: 20;" required>
+        <option selected value="<?php echo $dataSubjek['idsubjek']; ?>">
+          <?php echo $dataSubjek['subjek'] ?? null; ?>
+        </option>
+          <?php $data2=mysqli_query($hubung,"SELECT * FROM subjek "); 
+            while ($info2=mysqli_fetch_array($data2)){
+              echo "<option value='$info2[idsubjek]'> $info2[subjek] </option>";
+            } 
+          ?>
+      </select>
+    </td>
+  </tr>
 <tr>
 <td align="center" style="color: darkorange; font-size: 20;">Topik :</td>
 <td><input type="text" name="paparan_topik" size="60%" class="b3tn info" style="font-size: 20; width: 300px" value="<?php echo $editTOPIK; ?>" /></td>

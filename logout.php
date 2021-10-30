@@ -1,7 +1,7 @@
 <?php
-//TAMATKAN SEST LOGIN
+// END THE CURRENT SESSION
 session_start();
 session_destroy();
-//LENCONGKAN KE FAIL LAMAN UTAMA
+// REDIRECT THE USER TO THE INDEX PAGE
 header("location:index.php");
 ?>

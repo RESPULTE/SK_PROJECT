@@ -87,21 +87,22 @@ $next=$total+1;
   <body>
 <center><h2 class="pop">TAMBAH TOPIK</h2></center>
       <main>
-<table width="70%" border="0" align="center">
+<table width="70%" border="0" align="center" style="border: 5px solid indianred; background-color: lightgoldenrodyellow; padding: 10px 10px; border-radius: 8px; width: 50%; padding-bottom: 25px;">
   <tr>
      <td>
 <form method="POST" action="tambah_topik.php">
-<tr>
-<td align="right">SUBJEK:</td>
-<td>
-<h2 style="font-size: 25px; color: forestgreen; margin-bottom: -3px;">
-<?php
-  $paparsubjek = $res['subjek'];
-  echo $paparsubjek;
-?>
-</h2>
-<input type="text" value="<?php echo $subjek_pilihan; ?>" name="subjek" hidden /></td> 
-</tr> 
+  <tr>
+    <td align="right">SUBJEK:</td>
+    <td>
+      <h2 style="font-size: 25px; color: forestgreen; margin-bottom: -3px;">
+      <?php
+        $paparsubjek = $res['subjek'];
+        echo $paparsubjek;
+      ?>
+      </h2>
+      <input type="text" value="<?php echo $subjek_pilihan; ?>" name="subjek" hidden />
+    </td> 
+  </tr> 
 <tr>
 <td align="right">BIL.:</td>
 <td>
@@ -115,14 +116,15 @@ $next=$total+1;
 <td><input class="btn1 info2" style="font-size: 22px;"  type="text" name="topik" required/></td>
 </tr> 
 <tr>
-<td align="right">FORMAT SOALAN:</td>
-<td>
-  <select name="jenis" class="btn1 info2" style="font-size: 22px; color: forestgreen;"  required>
-    <option hidden selected value="">PILIH FORMAT SOALAN</option>
-  	<option value='mcq'>Pelbagai Jawapan / Benar-Palsu</option>
-    <option value='fib'>Isi Tempat Kosong</option> 
-	</select>
-</td>
+  <td align="right">FORMAT SOALAN:</td>
+    <td>
+    <select name="jenis" class="btn1 info2" 
+    style="font-size: 22px; color: forestgreen;" required>
+      <option hidden selected value="">PILIH FORMAT SOALAN</option>
+    	<option value='mcq'>Pelbagai Jawapan / Benar-Palsu</option>
+      <option value='fib'>Isi Tempat Kosong</option> 
+  	</select>
+  </td>
 </tr> 
 <tr> 
 <td align="right">MARKAH:</td>

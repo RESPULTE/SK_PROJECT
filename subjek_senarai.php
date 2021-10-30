@@ -6,13 +6,13 @@
   color: darkorange;
   width: 70%;
 }
-.btn {
+.btn21 {
   border: 3px solid black;
   border-radius: 5px;
   margin: 3px;
   transition: all 0.3s;
   color: black;
-  font-size: 10px;
+  font-size: 20px;
   cursor: pointer;
 }
 
@@ -92,25 +92,28 @@ style='font-size:16px'>
     <td id="loll" width="40%"><b>Nama Subjek</b></td>
      <td id="loll" width="20%"><b>Tindakan</b></td>
   </tr> 
- <?php 
-$no=1;
-$data1=mysqli_query($hubung,"SELECT * FROM subjek ORDER BY subjek ASC");
-while ($infol=mysqli_fetch_array($data1))
-          {
-          ?>
-  <tr>
-  <td id="tt"><?php echo $no; ?></td>
-  <td id="tt"><?php echo $infol['subjek']; ?></td>
-  <td id="tt"><a href="edit_subjek.php?idsubjek=<?php echo $infol['idsubjek'];?>" onclick="return confirm('Anda Pasti?')"><button class="info11">Edit</button></a>
-<a href="hapus_subjek.php?idsubjek=<?php echo $infol ['idsubjek'];?>" 
-onclick="return confirm('AWAS!!!, Topik,Soalan dan jawapan akan dihapuskan. Anda Pasti?')">
-<button class="kill">Hapus</button> </a></td>
-</tr>
+  <?php 
+    $no=1;
+    $data1=mysqli_query($hubung,"SELECT * FROM subjek ORDER BY subjek ASC");
+    while ($infol=mysqli_fetch_array($data1)){
+   ?>
+    <tr>
+      <td id="tt"><?php echo $no; ?></td>
+      <td id="tt"><?php echo $infol['subjek']; ?></td>
+      <td id="tt">
+        <a href="edit_subjek.php?idsubjek=<?php echo $infol['idsubjek'];?>" 
+           onclick="return confirm('Anda Pasti?')">
+              <button class="info11">Edit</button></a>
+        <a href="hapus_subjek.php?idsubjek=<?php echo $infol ['idsubjek'];?>" 
+           onclick="return confirm('AWAS!!!, Topik,Soalan dan jawapan akan dihapuskan. Anda Pasti?')">
+              <button class="kill">Hapus</button> </a></td>
+    </tr>
+    
   <?php $no++; } ?>
 
 </table></main><center><font style='font-size:14px'> 
   <br>
-<center><a href="subjek_daftar.php"><button class="btn info">Daftar Subjek</button></a></center>
+<center><a href="subjek_daftar.php"><button class="btn21 info">Daftar Subjek</button></a></center>
 
 * Senarai Tamat *<br />Jumlah Rekod:<?php echo $no-1; ?>
 </font></center>

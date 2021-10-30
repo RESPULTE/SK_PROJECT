@@ -79,7 +79,7 @@ include 'header.php';
 <center><h2 class="pop">IMPORT NAMA PELAJAR DARI FAIL CSV</h2>
 </center>
    <main>
-<table width="70%" border= "0" align="center">
+<table width="70%" border= "0" align="center" style="background-color: lightcyan; border: 5px solid dodgerblue;">
   <tr>
      <td>
 <label style="font-size: 20; color: dodgerblue;">Kemudahan untuk daftar nama pelajar secara berkelompok</label><br>
@@ -88,8 +88,8 @@ include 'header.php';
 <!-- PANGGIL FAIL IMPORT CSV-->
 <form action="import_csv.php" method="post" name="upload_excel" enctype="multipart/form-data">
 <br>
-<label>
-    <a class=" b3tn info2" >
+<label class=" b3tn info2" style="padding: 3px 3px;">
+    <a>
         SELECT FILE
         <input type="file" name="file" id="file" class="input-large" required>
     </a>

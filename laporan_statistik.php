@@ -64,24 +64,14 @@ require 'keselamatan.php';
 <title><?php echo $nama_sistem;?></title> 
 <body>
 <center>
-<table width="800" border="0">
-  <tr><td width="800">
-     <table width="800" border="0">
-  <tr>
-<td width="80" valign="top">
-<img src="<?php echo $lencana;?>" width="100" height="102" hspace="7" align="left" /></td>
-
-<td><h5><?php echo $nama_sekolah;?></h5>
-  </tr> 
-  <tr> 
-  <td colspan="3" valign="top"><hr/></td>
-  </tr> 
-  </table></td> 
+<img src="<?php echo $lencana;?>" width="200" height="200" hspace="7" /></td>
+</center>
+</td> 
  </tr>
  <tr>
     <td>
 <center>
-  <p class="pop11" align="center"><strong>LAPORAN: BILANGAN SOALAN MENGIKUT TOPIK BAGI SEMUA SUBJEK</strong></p>
+  <p class="pop11" style="width: 65%;" align="center"><strong>LAPORAN: BILANGAN SOALAN MENGIKUT TOPIK BAGI SEMUA SUBJEK</strong></p>
 </center>
 
 
@@ -89,34 +79,36 @@ require 'keselamatan.php';
   </tr>
   <tr>
     <td id="loll" width="30"><b>Bil.</b></td>
-     <td id="loll" width="250"><b>Subjek</b></td> 
+     <td id="loll" width="150"><b>Subjek</b></td> 
 	 <td id="loll" width="400"><b>Topik</b></td> 
-	 <td id="loll" width="70"><b>Format</b></td> 
+	 <td id="loll" width="200"><b>Guru</b></td> 
 	 <td id="loll" width="50"><b>Soalan</b></td>
   </tr>
 <?php
 $no=1; 
 $rekod=mysqli_query($hubung,"SELECT * FROM topik");
 while ($infoRekod=mysqli_fetch_array($rekod)){
-//Sambung ke table soalan	
-  $soalan=mysqli_query($hubung,"SELECT idtopik,jenis,COUNT(idtopik) as 'bil' FROM soalan where idtopik='$infoRekod[idtopik]'");
+
+  //Sambung ke table soalan	
+  $soalan=mysqli_query($hubung,"
+    SELECT idtopik,jenis,COUNT(idtopik) 
+    as 'bil' FROM soalan 
+    where idtopik='$infoRekod[idtopik]'");
   $infoSoalan=mysqli_fetch_array($soalan);
-	 
-//Sambung ke table subjek 
-$subjek=mysqli_query($hubung, "SELECT * FROM subjek WHERE idsubjek='$infoRekod[idsubjek]'"); 
-$infoSubjek=mysqli_fetch_array($subjek);
+
+  //Sambung ke table pengguna 	
+  $guru=mysqli_query($hubung,"SELECT nama FROM pengguna where idpengguna='$infoRekod[idpengguna]'");
+  $infoGuru=mysqli_fetch_array($guru);
+
+  //Sambung ke table subjek 
+  $subjek=mysqli_query($hubung, "SELECT * FROM subjek WHERE idsubjek='$infoRekod[idsubjek]'"); 
+  $infoSubjek=mysqli_fetch_array($subjek);
 ?>
   <tr style='font-size:16px'>
     <td id="tt" ><?php echo $no; ?></td>
     <td id="tt" ><?php echo $infoSubjek['subjek'] ?? null; ?></td>
 	 <td id="tt" ><?php echo $infoRekod['topik']; ?></td>
-     <td  id="tt" align="center"><?php
-     if ($infoSoalan['jenis']==1){ 
-          echo "MCQ / TF";
-     }else{
-          echo "FIB";
-     }?>
-</td>
+     <td  id="tt" align="center"><?php echo $infoGuru['nama']; ?></td>
 
 <td  id="tt" align="center"><?php echo $infoSoalan['bil'];; ?></td>  
   </tr>

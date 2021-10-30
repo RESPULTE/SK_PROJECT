@@ -117,32 +117,33 @@ $subjek = $res['subjek'];
 <td id="loll" width="14%"><b>Pengurusan Topik</b></td>
 </tr>
 
-<?php
-$no=1;
-$data1=mysqli_query($hubung,"SELECT * FROM topik WHERE idsubjek='$subjek_pilihan' AND idpengguna='$guru'");
-while ($info1=mysqli_fetch_array($data1))
-{
-?>
-<tr>
-<td id="tt11"><?php echo $no; ?></td>
-<td id="tt11"><?php echo $info1['topik']; ?></td>
-<td id="tt11">
-  <a href="soalan_baru1.php?idtopik=<?php echo $info1['idtopik'];?>">
-  <button class="b3tn info">+MCQ</button></a>
-<a href="soalan_baru2.php?idtopik=<?php echo $info1['idtopik'];?>">
-  <button class="b3tn info">+FIB</button></a>
-<a href="papar_soalan.php?idtopik=<?php echo $info1['idtopik'];?>">
-  <button class="b3tn info2">Papar</button></a>
-</td>
-<td id="tt11">
-<a href="edit_topik.php?idtopik=
-<?php echo $info1['idtopik'];?>"><button class="b3tn info">Edit
-</button></a>
-<a href="hapus_topik.php?idtopik=
-<?php echo $info1['idtopik'];?>"><button class="b3tn kill">Hapus
-</button></a>
-</td>
-</tr>
+  <?php
+    $no=1;
+    $data1=mysqli_query($hubung,"
+      SELECT * FROM topik 
+      WHERE idsubjek='$subjek_pilihan' 
+      AND   idpengguna='$guru'");
+    while ($info1=mysqli_fetch_array($data1)){
+  ?>
+
+  <tr>
+    <td id="tt11"><?php echo $no; ?></td>
+    <td id="tt11"><?php echo $info1['topik']; ?></td>
+    <td id="tt11">
+      <a href="soalan_baru1.php?idtopik=<?php echo $info1['idtopik'];?>">
+        <button class="b3tn info">+MCQ</button></a>
+      <a href="soalan_baru2.php?idtopik=<?php echo $info1['idtopik'];?>">
+        <button class="b3tn info">+FIB</button></a>
+      <a href="papar_soalan.php?idtopik=<?php echo $info1['idtopik'];?>">
+        <button class="b3tn info2">Papar</button></a>
+    </td>
+    <td id="tt11">
+      <a href="edit_topik.php?idtopik=<?php echo $info1['idtopik'];?>">
+        <button class="b3tn info">Edit</button></a>
+      <a href="hapus_topik.php?idtopik=<?php echo $info1['idtopik'];?>">
+        <button class="b3tn kill">Hapus</button></a>
+    </td>
+  </tr>
 <?php $no++; } ?>
 </table>
 </main>

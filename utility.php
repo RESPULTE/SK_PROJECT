@@ -36,11 +36,6 @@ body {
 }
 
 </style>
-<?php 
-if (!isset($_SESSION['bg'])){
-  $_SESSION["bg"] = 'terang';
-}
-?>
 <script>
 function myFunction() {
     element = document.body;
@@ -49,7 +44,7 @@ function myFunction() {
 }
 </script>
 </head>
-<body class="back">
+<body style='background-image: url("bsg.jpg");'>
 <center>
 <button  class="bt3n info1" style="font-size: 15;" onclick="myFunction()">Toggle dark mode</button>
 </center>

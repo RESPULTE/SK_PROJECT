@@ -92,7 +92,7 @@ $dataSubjek = mysqli_fetch_array($pilihSubjek);
 <body>
 <center><h2 class="pop">KEMASKINI SUBJEK</h2></center>
 <main>
-<table width="70%" border="0" align="center" style=' font-size:18px'>
+<table width="70%" border="0" align="center" style=' font-size:18px; border: 5px solid indianred; background-color: lightgoldenrodyellow; padding: 10px 10px; border-radius: 8px; width: 50%; padding-bottom: 10px;'>
 <tr>
 <td>
 <form method="POST">

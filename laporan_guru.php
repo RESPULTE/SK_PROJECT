@@ -101,23 +101,17 @@ $infoTopik=mysqli_fetch_array($topik);
 <title><?php echo $nama_sistem;?></title>
 <body>
   <center>
-    <table width="800" border="0">
-  <tr>
-    <td width="800">
-     <table width="800" border="0">
+     <table width="800" border="0" style="background-color: white;">
   <tr>
     <td width="80" valign="top">
 <img src="lencana.png" width="85" height="102" hspace="7" align="left" />
         </td>
-          <td>
           <h5><?php echo $nama_sekolah;?></h5>
       </tr>
       <tr>
         <td colspan="3" valign="top"><hr/></td>
         </tr>
-    </table></td>
   </tr>
-  <tr>
     <td><center><p class="pop" style="font-size:22 ;"><strong>LAPORAN PRESTASI PELAJAR BAGI TOPIK: 
 <?php echo $infoTopik['topik']; ?></strong></center></p>
 <table width="800" border="0" align="center"> 
@@ -144,14 +138,14 @@ while ($infoRekod=mysqli_fetch_array($rekod)){
 	 <td id="tt"><?php echo $infoRekod['Bil'];; ?></td>
   </tr>
 <?php $no++; } ?>
-</table>
+
 <center><h5>* Laporan Tamat *<br/>
 Jumlah Rekod:<?php echo $no-1; ?></h5><br> 
 
 <input id='printPageButton' type='button' onclick="window.location.href='index2.php';" style="margin-left: 5px;" class="btn info" value="Home "/>
 <input id='printPageButton' type='button' onclick="javascript:window.print();" style="margin-left: 5px;" class="btn info2" value="Cetak Laporan"/>
 <input id='printPageButton' type='button' onclick="window.location.href='logout.php';" style="margin-left: 5px;" class="btn info" value="Logout"/></center> 
-
+</table>
 </body>
 </html>
 

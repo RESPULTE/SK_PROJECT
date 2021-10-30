@@ -10,7 +10,6 @@
   cursor: pointer;
 }
 
-
 /* Blue */
 .info {
   border-color: #2196F3;
@@ -52,17 +51,20 @@ $nokp = $_SESSION['idpengguna'];
 <tr>
 <td>
 <center>
-<h3 style="font-size: 25; color: dodgerblue; margin-bottom: -10px;"><b>* SELAMAT DATANG *</b></h3>
-<p style="font-size: 20; color: darkorange;">
-<?php
-//Papar maklumat lengkap pengguna login
-$dataA=mysqli_query($hubung, "SELECT * FROM pengguna WHERE idpengguna='$nokp'");
-$infoA=mysqli_fetch_array($dataA);
-?>
+  <div style="border: 5px solid indianred; background-color: lightgoldenrodyellow; padding: 10px 10px; border-radius: 8px; width: 50%; padding-bottom: 25px;">
+   <h3 style="font-size: 30; color: dodgerblue; margin-top: 0px;"><b>* SELAMAT DATANG *</b></h3>
+      <p style="font-size: 25; color: darkorange;">
+      <?php
+      //Papar maklumat lengkap pengguna login
+      $dataA=mysqli_query($hubung, "SELECT * FROM pengguna WHERE idpengguna='$nokp'");
+      $infoA=mysqli_fetch_array($dataA);
+      ?>
 
-	Nama Anda :<?php echo $infoA['nama']; ?><br>
-	Nombor KP :<?php echo $infoA['idpengguna']; ?></br>
-</p>
+        Nama Anda :<?php echo $infoA['nama']; ?><br>
+        Nombor KP :<?php echo $infoA['idpengguna']; ?></br>
+      </p> 
+  </div>
+
 </center>
 </td>
 </tr>
