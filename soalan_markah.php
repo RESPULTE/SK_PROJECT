@@ -24,8 +24,8 @@
   cursor: pointer;
 }
 .b3tn {
-  border: 3px solid black;
-  border-radius: 5px;
+  border: 5px solid black;
+  border-radius: 8px;
   font-size: 18;
   margin: 3px;
   color: black;
@@ -99,11 +99,11 @@ mysqli_query($hubung,$query) or die("<br />".$query);
 <td>
 <center>
     <br>
-<button  class="bt3n info" style=' margin-left: 8px; border: 3px solid dodgerblue; border-radius: 3px;' onclick="window.location.href='soalan_papar.php?&idtopik=<?php echo $_SESSION['idtopik']?>&n=1'">Cuba Lagi</button>
+<button  class="b3tn info" style=' margin-left: 8px; border: 3px solid dodgerblue; border-radius: 3px;' onclick="window.location.href='soalan_papar.php?&idtopik=<?php echo $_SESSION['idtopik']?>&n=1'">Cuba Lagi</button>
 
-<button  class="bt3n info" style='margin-left: 8px; border: 3px solid dodgerblue; border-radius: 3px;' onclick="window.location.href='index2.php'">Tamat</button>
+<button  class="b3tn info" style='margin-left: 8px; border: 3px solid dodgerblue; border-radius: 3px;' onclick="window.location.href='index2.php'">Tamat</button>
 
-<button  class="bt3n info" style='margin-left: 8px; border: 3px solid dodgerblue; border-radius: 3px;' onclick="window.location.href='skor_individu.php'">Prestasi</button>
+<button  class="b3tn info" style='margin-left: 8px; border: 3px solid dodgerblue; border-radius: 3px;' onclick="window.location.href='skor_individu.php'">Prestasi</button>
 
 <?php $_SESSION['score']=0; ?>
           </td>

@@ -42,6 +42,12 @@
   background-color: lightcyan;
   color: dodgerblue
 }
+.info434 {
+  font-size: 20;
+  border-color: #2196F3;
+  background-color: lightcyan;
+  color: dodgerblue
+}
 .info122 {
   font-size: 30;
   border-color: #2196F3;
@@ -133,6 +139,13 @@
   border-radius: 50%;
   background: white;
 }
+#imgsoal {
+  max-width:450px;
+  max-height:450px;
+  margin-top: -30px;
+  border: 6px solid darkblue;
+  border-radius: 8px;
+}
 </style>
 <?php
 require 'sambung.php';
@@ -183,7 +196,7 @@ $choices = mysqli_query($hubung,$query);
 <tr> 
 <td> 
 <hr> 
-<p style="font-size: 20; margin-top: 5px; color: dodgerblue;">
+<p style="font-size: 20; margin-top: 5px; color: dodgerblue; padding: 10px 10px; width: 50%;" class="b3tn info434">
 <?php
 //RESPON TAS JAWAPAN BETUL ATAU TIDAK
 if($number == 1){
@@ -207,22 +220,26 @@ $jawapan=$_GET['semakan'];
       <tr>
           <td>
 <hr>
-<p style="font-size: 20; color: darkorange; margin-bottom: -30px;">Soalan <?php echo $number; ?> dari <?php echo $total; ?></p> 
+<p style="font-size: 20; color: darkorange; margin-bottom: -30px; padding: 10px 10px; width: 50%;" class="bt3n pop">Soalan <?php echo $number; ?> dari <?php echo $total; ?></p> 
+
 <br><br>
-<p class="bt3n info122">
-  <?php echo $question['soalan'] ?? null; ?>
+<p class="bt3n info" style="padding: 10px 10px;  font-size: 30; border-radius: 10px;">
+  <font style="border: none; font-size: 40; margin-left: -10px; color:  darkorange; margin-bottom: -20px; padding: 10px 10px; text-decoration: underline;">Soalan</font>
+  <br><br>
+  <?php echo $question['soalan']; ?>
 </p>
 
 <br> 
 <p style="font-size: 20; color: grey;">
-<?php
-if (isset($question['gambarajah'])){
-  echo "<img src='gambar/".$question['gambarajah']."'width='10%' height='30%'/>";
+  <center>
+   <?php
+if (!empty($question['gambarajah'])){
+  echo "<img src='gambar/".$question['gambarajah']."' width='100%' height='100%' id='imgsoal'/>";
 }
-else {
-  echo '[tiada gambar]';
-}
-?>
+else {}
+?> 
+  </center>
+
 </p>
 </P>
 <form method="post" action="soalan_semak.php">

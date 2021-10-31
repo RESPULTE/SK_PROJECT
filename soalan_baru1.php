@@ -26,7 +26,11 @@
   background-color: lightcyan;
   color: dodgerblue;
 }
-
+.info1010 {
+  border-color: #2196F3;
+  background-color: lightcyan;
+  color: dodgerblue;
+}
 .info:hover {
   background: #2196F3;
   color: white;
@@ -93,8 +97,7 @@ if (isset($_POST['submit'])){
     $random=rand(10000,99999); 
     $newnamepic=$imageArr[0].$random.'.'.$imageArr[1]; 
     $uploadPath="gambar/".$newnamepic; 
-    $isUploaded=move_uploaded_file($_FILES["gambar"] 
-    ["tmp_name"],$uploadPath);
+    $isUploaded=move_uploaded_file($_FILES["gambar"]["tmp_name"], $uploadPath);
   }
    //NILAI POST
   $nom_soalan = $_POST['nom_soalan']; 
@@ -150,24 +153,26 @@ $next=$total+1;
   <tr>
      <td>
 <form method="post" enctype="multipart/form-data">
-<p>
-<label style="font-size: 20; margin-top: 5px; color: dodgerblue;">Bilangan Soalan</label>
-<input style="font-size: 20; margin-top: 5px; color: dodgerblue;" type="text" value="<?php echo $next; ?>" name="nom_soalan" size="5" readonly />
+<p class="b3tn info1010" style="width: 30%; border-radius:10px; border: 4px solid dodgerblue; padding: 10px 10px;">
+<label style="font-size: 25; margin-top: 5px; color: dodgerblue;">Bilangan Soalan: </label>
+<input style="font-size: 25; margin-top: 5px; color: dodgerblue; background-color: transparent; border: none" type="text" value="<?php echo $next; ?>" name="nom_soalan" size="5" readonly />
 </p>
+
 <br> 
-<label class="warn1" style="font-size: 40; background-color: white;">Soalan</label>
+<label class="warn1" style="font-size: 40; background-color: transparent;">Soalan</label>
 <p> 
-<textarea id="paparan_soalan" name="paparan_soalan" style="margin-top: -10px; margin-bottom: 20px;" 
-rows="7" cols="105" required class="btn1 info3"></textarea>
+<textarea id="paparan_soalan" name="paparan_soalan"  
+rows="7" cols="105" required class="btn1 info3" style="margin-top: -10px; margin-bottom: 20px; border: 4px solid dodgerblue; border-radius: 10px;"></textarea>
 </p> 
 <br>
-<label class="btn1 info2">
+<label class="btn1 info2" style="padding: 5px 10px;">
   <input  type="file" name="gambar"/> 
   UPLOAD GAMBAR
 </label>
 <br>
-<p>
-     <label>Pilihan 1: </label>
+<div class="b3tn info1010" style="text-indent: 10px; width: 75%; border: 4px solid dodgerblue; border-radius: 10px; padding-bottom: 40px; margin-top: 20px;">
+  <p>
+     <label >Pilihan 1: </label>
 <input type="text" name="pilih1" size="50" class="btn1 info" required style=" margin-bottom: 20px;"/>
 </p> 
 <p>
@@ -183,11 +188,13 @@ rows="7" cols="105" required class="btn1 info3"></textarea>
 <input type="text" name="pilih4" size="50" class="btn1 info" required style=" margin-bottom: 20px;"/>
 </p>
 <p>
-	 <label>Pilihan Jawapan [1-4] </label>
+   <label>Pilihan Jawapan [1-4] </label>
 <input type="number" class="btn1 info" name="jawapan_betul" size="5" min="1" max="4"  required />
 </p> 
+</div>
+
 <br>
-<fieldset><legend>MENU</legend>
+<fieldset class="b3tn info1010" style="border: 4px solid dodgerblue; border-radius: 10px;"><legend style="font-size: 30; color: dodgerblue;" >MENU</legend>
 <CENTER>
 <label>
    <button class="btn1 info" type="submit" name="submit">
