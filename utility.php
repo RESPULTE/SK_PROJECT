@@ -16,14 +16,20 @@
 
 body {
   padding: 25px;
-  transition: all 0.6s; 
+  transition: all 0.3s; 
   color: black;
   background-size: cover;
   font-size: 25px;
+  -webkit-filter: grayscale(0);
+  background-image: url("bg.jpg");
+  background-size: cover;
+  backdrop-filter: blur(5px) brightness(100%); 
 }
 
 .dark-mode {
-  background-color: black;
+  -webkit-filter: contrast(80%);
+  backdrop-filter: brightness(10%) blur(5px);
+  transition: 0.3s;
 }
 
 .btn3 {
@@ -44,7 +50,7 @@ function myFunction() {
 }
 </script>
 </head>
-<body style='background-image: url("bsg.jpg");'>
+<body>
 <center>
 <button  class="bt3n info1" style="font-size: 15;" onclick="myFunction()">Toggle dark mode</button>
 </center>

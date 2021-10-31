@@ -98,11 +98,10 @@ $idpengguna=$_SESSION['idpengguna'];
 <table width="70%" align="center">
   <tr>
     <td id="loll" width="2%"><b>Bil.</b></td>
-    <td id="loll" width="15%"><b>Subjek</b></td>
+    <td id="loll" width="10%"><b>Subjek</b></td>
     <td id="loll" width="25%"><b>Topik</b></td>
-    <td id="loll" width="8%"><b>Jenis Soalan</b></td>
+    <td id="loll" width="15%"><b>Guru</b></td>
     <td id="loll" width="20%"><b>Tarikh/Masa</b></td>
-    <td id="loll" width="4%"><b>Skor</b></td>
      <td id="loll" width="4%"><b>Markah</b></td>
   </tr> 
  <?php 
@@ -116,12 +115,18 @@ while ($info1=mysqli_fetch_array($data1)){
 $dataTopik=mysqli_query($hubung,"SELECT * FROM topik WHERE 
 idtopik='$info1[idtopik]'"); 
 $getTopik=mysqli_fetch_array($dataTopik);
+
 $dataSubjek=mysqli_query($hubung,"SELECT * FROM subjek WHERE 
 idsubjek='$getTopik[idsubjek]'"); 
 $getSubjek=mysqli_fetch_array($dataSubjek);
+
 //TABLE SOALAN, Nak dapatkan bilangan soalan
-$dataSoalan=mysqli_query($hubung,"SELECT jenis, COUNT(idtopik) as 'bil' FROM soalan WHERE idtopik='$info1[idtopik]' AND jenis='$info1[jenis]'");
+$dataSoalan=mysqli_query($hubung,"SELECT jenis, MAX(nom_soalan) as 'bil' FROM soalan 
+  WHERE idtopik='$info1[idtopik]' AND jenis='$info1[jenis]'");
 $infoSoalan=mysqli_fetch_array($dataSoalan);
+
+$dataPengguna = mysqli_query($hubung, "SELECT * from pengguna where idpengguna='$getTopik[idpengguna]'");
+$getPengguna = mysqli_fetch_array($dataPengguna);
 //VARIABLE VALUE 
 $jenisSoalan=$info1['jenis'];
 $bilSoalan=$infoSoalan['bil'];
@@ -132,16 +137,11 @@ $subjek_ = $getSubjek['subjek'];
    <td  id='tt'><?php echo $no; ?></td> 
    <td id='tt'><?php echo $getSubjek['subjek']; ?></td>
     <td id='tt'><?php echo $getTopik['topik']; ?></td>
-    <td  id='tt'align="center"><?php 
-	if($jenisSoalan==1){
-         echo "MCQ/TF";
-	}else{
-         echo "FIB";
-        }
-    ?></td>
+    <td  id='tt'align="center"><?php echo $getPengguna['nama']?></td>
 <td id='tt' align="center"><?php echo date('d-m-Y g:i A', strtotime($info1['catatan_masa'])); ?></td>
-<td id='tt' align="center"><?php echo $info1['skor']; ?></td>
-<td id='tt' align="center"><?php echo number_format(($info1['skor']/$bilSoalan)*$markah_Topik);?>%</td>
+<td id='tt' align="center">
+  <?php echo number_format(($info1['skor']/$bilSoalan)*$markah_Topik);?>
+%</td>
   </tr>
   <?php $no++; } ?> 
 </table>

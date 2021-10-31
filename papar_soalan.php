@@ -43,7 +43,7 @@
   color: dodgerblue
 }
 .info122 {
-  font-size: 20;
+  font-size: 30;
   border-color: #2196F3;
   background-color: lightcyan;
   color: dodgerblue

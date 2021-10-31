@@ -39,14 +39,11 @@
 
 .info13131:hover {
   border-color: orange;
-  background: white;
-  color: orange;
+  background-color: orange;
+  color: white;
 }
-.info13131:focus{
-  border-color: orange;
-  background: white;
-  color: darkorange;
-}
+
+
 </style>
 
 <?php

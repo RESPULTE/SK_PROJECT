@@ -100,25 +100,16 @@ $infoTopik=mysqli_fetch_array($topik);
 <html>
 <title><?php echo $nama_sistem;?></title>
 <body>
-  <center>
-     <table width="800" border="0" style="background-color: white;">
-  <tr>
-    <td width="80" valign="top">
-<img src="lencana.png" width="85" height="102" hspace="7" align="left" />
-        </td>
-          <h5><?php echo $nama_sekolah;?></h5>
-      </tr>
-      <tr>
-        <td colspan="3" valign="top"><hr/></td>
-        </tr>
-  </tr>
-    <td><center><p class="pop" style="font-size:22 ;"><strong>LAPORAN PRESTASI PELAJAR BAGI TOPIK: 
+<center>
+<img src="<?php echo $lencana;?>" width="200" height="200" hspace="7" /></td>
+</center>
+    <td><center><p class="pop" style="font-size:22; width: 65%;"><strong>LAPORAN PRESTASI PELAJAR BAGI TOPIK: 
 <?php echo $infoTopik['topik']; ?></strong></center></p>
 <table width="800" border="0" align="center"> 
   <tr>
     <td id="loll" width="10"><b>Bil.</b></td>
      <td id="loll" width="500"><b>Nama Pelajar</b></td> 
-   <td id="loll" width='200'><b>Skor Tertinggi</b></td> 
+   <td id="loll" width='200'><b>Markah Tertinggi</b></td> 
   <td id="loll" width="120"><b>Bil.Ujian</b></td>
   </tr>
   </center>
@@ -126,26 +117,41 @@ $infoTopik=mysqli_fetch_array($topik);
  <?php
  $no=1;
  //ARAHAN SQL, PELAJAR MARKAH 1 DAN KE ATAS SAHAJA
-$rekod=mysqli_query($hubung,"SELECT idpengguna,idtopik, MAX(skor), COUNT(idpengguna) AS 'Bil' FROM perekodan WHERE idtopik='$topik_pilihan' GROUP BY idpengguna");
+$rekod=mysqli_query($hubung,"SELECT idpengguna,idtopik, jenis, MAX(skor) AS 'max_skor', COUNT(idpengguna) AS 'Bil' FROM perekodan WHERE idtopik='$topik_pilihan' GROUP BY idpengguna");
+
 while ($infoRekod=mysqli_fetch_array($rekod)){
   $pelajar=mysqli_query($hubung,"SELECT * FROM pengguna WHERE idpengguna='$infoRekod[idpengguna]'"); 
   $infoPelajar=mysqli_fetch_array($pelajar);
+
+  $dataTopik=mysqli_query($hubung,"SELECT * FROM topik WHERE idtopik='$infoRekod[idtopik]'"); 
+  $infoTopik = mysqli_fetch_array($dataTopik);
+
+$dataSoalan=mysqli_query($hubung,"SELECT jenis, MAX(nom_soalan) AS 'bil' FROM soalan WHERE idtopik='$infoRekod[idtopik]' AND jenis='$infoRekod[jenis]'");
+$infoSoalan=mysqli_fetch_array($dataSoalan);
+
+$bilSoalan=$infoSoalan['bil'];
+$markah_Topik=$infoTopik['markah']; 
+$SKOR = $infoRekod['max_skor']
 ?>
   <tr style='font-size:20px'>
     <td id="tt"><?php echo $no; ?></td>
     <td id="tt"><?php echo $infoPelajar['nama']; ?></td> 
-	 <td id="tt"><?php echo $infoRekod['MAX(skor)']; ?></td> 
+	 <td id="tt"><?php echo number_format(($SKOR/$bilSoalan)*$markah_Topik); ?> %</td> 
 	 <td id="tt"><?php echo $infoRekod['Bil'];; ?></td>
   </tr>
 <?php $no++; } ?>
 
-<center><h5>* Laporan Tamat *<br/>
-Jumlah Rekod:<?php echo $no-1; ?></h5><br> 
-
+</table>
+<center>
+  <h5>* Laporan Tamat *
+    <br/> Jumlah Rekod:<?php echo $no-1; ?>
+  </h5>
+  <br> 
 <input id='printPageButton' type='button' onclick="window.location.href='index2.php';" style="margin-left: 5px;" class="btn info" value="Home "/>
 <input id='printPageButton' type='button' onclick="javascript:window.print();" style="margin-left: 5px;" class="btn info2" value="Cetak Laporan"/>
-<input id='printPageButton' type='button' onclick="window.location.href='logout.php';" style="margin-left: 5px;" class="btn info" value="Logout"/></center> 
-</table>
+<input id='printPageButton' type='button' onclick="window.location.href='logout.php';" style="margin-left: 5px;" class="btn info" value="Logout"/>
+</center> 
+
 </body>
 </html>
 

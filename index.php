@@ -25,12 +25,14 @@
 require 'sambung.php';
 //PANGGILAN HEADER
 include 'header.php';
+include 'menu1.php';
+
 ?>
 
 <html>
 <body>
 
-<?php include 'menu1.php' ?>
+
 
 <center>
 <marquee behavior="alternate" class="warsn" width='500' >

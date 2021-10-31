@@ -66,8 +66,6 @@ require 'keselamatan.php';
 <center>
 <img src="<?php echo $lencana;?>" width="200" height="200" hspace="7" /></td>
 </center>
-</td> 
- </tr>
  <tr>
     <td>
 <center>

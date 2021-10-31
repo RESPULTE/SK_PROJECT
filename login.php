@@ -86,7 +86,7 @@ include 'header.php';
 
             <h2 id="tile" style="margin-top: 10px; margin-bottom: 10px; margin-left: 50px;">Katalaluan</h2>
               <input type="password" name="password" class="btn90 info1211"
-               maxlength='10'size="10" style="margin-left: 50px;"required>
+               maxlength='20'size="25" style="margin-left: 50px;"required>
             <br><br>
               <button type="submit" class="btn90 info2" style="margin-left: 50px;">Daftar Masuk</button>
               <button type="reset" class="btn90 warn">Reset</button>

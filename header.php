@@ -23,7 +23,7 @@
 
     <body>
     <!-- parent div -->
-      <div style="position: relative;">
+      <div style="position: relative; z-index:1;">
         <!-- image -->
         <center>
            <img src="school.jpg" width="80%" height="400"  style="border: 8px solid darkred; border-radius: 5px; z-index: -10; "> 
